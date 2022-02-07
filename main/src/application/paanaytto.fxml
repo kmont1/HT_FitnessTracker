@@ -16,7 +16,7 @@
                <graphic>
                   <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="120.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
+                        <Button fx:id="lopetaButton" mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
                         <Button mnemonicParsing="false" onAction="#redirAsetukset" text="Asetukset" />
                      </children>
                   </HBox>

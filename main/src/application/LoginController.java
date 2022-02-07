@@ -49,9 +49,9 @@ public class LoginController {
     private void kirjaudu() {
     	Dialogs.showMessageDialog("kirjautumista ei ole vielä lisätty");
     	
-    	redirMainmenu();
+    	redirMainMenu();
     }    
-    private void redirMainmenu() {
+    private void redirMainMenu() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
 	        Scene scene = new Scene(root, 600, 374.4);

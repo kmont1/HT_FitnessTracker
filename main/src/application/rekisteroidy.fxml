@@ -52,7 +52,7 @@
       </MenuBar>
    </top>
    <bottom>
-      <Button alignment="CENTER" mnemonicParsing="false" text="Rekisteröidy" BorderPane.alignment="BOTTOM_CENTER">
+      <Button fx:id="rekisteroidyButton" alignment="CENTER" mnemonicParsing="false" onAction="#handlePaanaytto" text="Rekisteröidy" BorderPane.alignment="BOTTOM_CENTER">
          <BorderPane.margin>
             <Insets bottom="50.0" />
          </BorderPane.margin>

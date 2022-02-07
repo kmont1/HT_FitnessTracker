@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class RekisteroidyController {
+public class TreeniHistoriaController {
 
     @FXML
     private Menu mainLopeta;
