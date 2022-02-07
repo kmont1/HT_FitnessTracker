@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RekisteroidyController">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField alignment="CENTER" promptText="Syötä etunimi:">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField alignment="CENTER" layoutX="60.0" layoutY="25.0" promptText="Syötä sukunimi:">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField alignment="CENTER" layoutX="10.0" layoutY="102.0" promptText="Syötä sähköposti:">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField alignment="CENTER" promptText="Keksi salasana:">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
+               </VBox.margin>
+            </PasswordField>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="mainLopeta" mnemonicParsing="false" onAction="#handleLopeta">
+               <graphic>
+                  <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="55.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
+                     </children>
+                  </HBox>
+               </graphic></Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <Button alignment="CENTER" mnemonicParsing="false" text="Rekisteröidy" BorderPane.alignment="BOTTOM_CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>
