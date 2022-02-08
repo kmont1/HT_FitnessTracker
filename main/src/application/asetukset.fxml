@@ -20,7 +20,7 @@
                <graphic>
                   <HBox prefHeight="0.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
+                        <Button fx:id="lopetaButton" mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
                         <Button mnemonicParsing="false" onAction="#redirPaanaytto" text="Takaisin" />
                      </children>
                   </HBox>
@@ -77,7 +77,7 @@
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Käyttäjätunnus" wrappingWidth="89.4700984954834" />
                         <TextField prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" text="Lähetä" GridPane.columnIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#handleKayttajatunnusLaheta" text="Lähetä" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="1">
@@ -92,7 +92,7 @@
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Salasana" wrappingWidth="89.4700984954834" />
                         <TextField prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" text="Lähetä" GridPane.columnIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#handleSalasanaLaheta" text="Lähetä" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="2">
@@ -107,7 +107,7 @@
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etunimi" wrappingWidth="89.4700984954834" />
                         <TextField prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" text="Lähetä" GridPane.columnIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#HandleEtunimiLaheta" text="Lähetä" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="3">
@@ -122,7 +122,7 @@
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sukunimi" wrappingWidth="89.4700984954834" />
                         <TextField prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" text="Lähetä" GridPane.columnIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#handleSukunimiLaheta" text="Lähetä" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TALLENNETTU" wrappingWidth="106.13671660423279" GridPane.rowIndex="6" />

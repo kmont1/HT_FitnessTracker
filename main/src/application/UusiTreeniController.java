@@ -16,34 +16,49 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class TreeniHistoriaController {
+public class UusiTreeniController {
 
-	
-	@FXML
+    @FXML
     private Button lopetaButton;
 
     @FXML
     void handleLopeta(ActionEvent event) {
     	lopeta();
     }
-    
-
 
     @FXML
-    void redirPaanaytto() {
+    void handleTallenna(ActionEvent event) {
+    	tallenna();
+    }
+
+    @FXML
+    void handleTallennaLiike(ActionEvent event) {
+    	tallennaLiike();
+    }
+
+    @FXML
+    void handleUusiLiike(ActionEvent event) {
+    	UusiLiike();
+    }
+
+    @FXML
+    void redirPaanaytto(ActionEvent event) {
     	paanaytto();
     	poista();
     }
-
-//=================================================================
-    
-    private void lopeta() {
-    	Platform.exit();
+    //====================================================================
+	private void lopeta() {
+		Platform.exit();
+	}
+	
+	private void poista() {
+    	
+    	Window stage = lopetaButton.getScene().getWindow();
+    	stage.hide();
     }
-    
 
-    
-    private void paanaytto() {
+	//ohjaa rekisteröitymään
+	private void paanaytto() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
 	        Scene scene = new Scene(root, 600, 374.4);
@@ -54,13 +69,16 @@ public class TreeniHistoriaController {
 	    } catch (IOException e) {
 	    	e.printStackTrace();
 	    }
-		
 	}
-
-	private void poista() {
-    	
-    	Window stage = lopetaButton.getScene().getWindow();
-    	stage.hide();
-    }
+	private void tallenna() {
+		Dialogs.showMessageDialog("ei vielä prkl");
+	}
+	private void tallennaLiike() {
+		Dialogs.showMessageDialog("ei vielä prkl");
+	}
+	private void UusiLiike() {
+		Dialogs.showMessageDialog("ei vielä prkl");
+	}
+	
 }
 

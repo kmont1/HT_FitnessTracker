@@ -55,12 +55,12 @@ public class LoginController {
     	}
     	else
     	{
-    		redirMainMenu();
+    		paanaytto();
     	}
     	
     	
     }    
-    private void redirMainMenu() {
+    private void paanaytto() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
 	        Scene scene = new Scene(root, 600, 374.4);

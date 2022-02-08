@@ -30,11 +30,39 @@ public class AsetuksetController {
     void redirPaanaytto() {
     	paanaytto();
     	poista();
+    	
+    }
+    @FXML
+    void handleKayttajatunnusLaheta() {
+    	KayttajatunnusLaheta();
+    }
+   
+		
+	
+
+	@FXML
+    void handleSalasanaLaheta() {
+    	SalasanaLaheta();
+    }
+   
+	
+
+	@FXML
+    void HandleEtunimiLaheta() {
+    	EtunimiLaheta();
     }
 
-//=================================================================
+
+	@FXML
+    void handleSukunimiLaheta() {
+    	SukunimiLaheta();
+    }
     
-    private void lopeta() {
+
+//=================================================================
+
+
+	private void lopeta() {
     	Platform.exit();
     }
     
@@ -59,5 +87,23 @@ public class AsetuksetController {
     	Window stage = lopetaButton.getScene().getWindow();
     	stage.hide();
     }
+	
+	private void KayttajatunnusLaheta() {
+		Dialogs.showMessageDialog("Salasana on v‰‰rin");
+	 }
+	private void SalasanaLaheta() {
+		Dialogs.showMessageDialog("Salasana on v‰‰rin");
+		 }
+		 
+	
+	private void EtunimiLaheta() {
+		Dialogs.showMessageDialog("Salasana on v‰‰rin");
+					
+		}
+				
+   private void SukunimiLaheta() {
+	   Dialogs.showMessageDialog("Salasana on v‰‰rin");
+		
+	}
 }
 
