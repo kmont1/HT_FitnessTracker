@@ -16,7 +16,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class TreeniHistoriaController {
+public class AsetuksetController {
 
 	@FXML
     private Button lopetaButton;
@@ -38,7 +38,7 @@ public class TreeniHistoriaController {
     	Platform.exit();
     }
     
-
+   
     
     private void paanaytto() {
     	try {        

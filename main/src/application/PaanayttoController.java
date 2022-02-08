@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 
 import fi.jyu.mit.fxgui.Dialogs;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,9 @@ public class PaanayttoController {
 
 	    @FXML
 	    void redirAsetukset(ActionEvent event) {
-
+	    	asetukset();
+	    	poista();
+	    	
 	    }
 
 	    @FXML
@@ -43,9 +46,9 @@ public class PaanayttoController {
 	    	poista();
 	    }
 //=============================================================
-	    private void lopeta() {
-	    	
-	    }
+		private void lopeta() {
+			Platform.exit();
+		}
 	    
 	    private void lisaaTreeni() {
 	    	redirLisaaTreeni();
@@ -87,4 +90,16 @@ public class PaanayttoController {
 	    	Window stage = lopetaButton.getScene().getWindow();
 	    	stage.hide();
 	    }
+		private void asetukset() {
+			try {        
+		        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("asetukset.fxml"));
+		        Scene scene = new Scene(root, 600, 374.4);
+		        Stage stage = new Stage();
+		        stage.setTitle("New Window");
+		        stage.setScene(scene);
+		        stage.show();
+		    } catch (IOException e) {
+		    	e.printStackTrace();
+		    }
+		}
 }

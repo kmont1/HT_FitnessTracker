@@ -5,6 +5,7 @@ package application;
 import java.io.IOException;
 
 import fi.jyu.mit.fxgui.Dialogs;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,14 +36,18 @@ public class RekisteroidyController {
 
 //=================================================================
     
-    private void lopeta() {
-    	
-    }
     
     private void rekisteroidy() {
-    	Dialogs.showMessageDialog("kirjautumista ei ole vielä lisätty");
-    	
-    	redirMainMenu();
+    	int i = 1;
+    	if (i == 0)
+    	{
+    		Dialogs.showMessageDialog("Sähköposti on jo käytössä");
+    	}
+    	else 
+    	{
+    		redirMainMenu();
+    	}
+	
     }
     
     private void redirMainMenu() {
@@ -64,5 +69,8 @@ public class RekisteroidyController {
     	Window stage = rekisteroidyButton.getScene().getWindow();
     	stage.hide();
     }
+	private void lopeta() {
+		Platform.exit();
+	}
 }
 

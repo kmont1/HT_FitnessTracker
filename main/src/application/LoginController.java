@@ -6,6 +6,7 @@ import java.lang.System.Logger.Level;
 
 import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ModalController;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,15 +42,23 @@ public class LoginController {
     
     @FXML
     void handleLopeta(ActionEvent event) {
-
+    	lopeta();
     }
     
     //===============================================================
     //menetelm‰ kirjautumiselle
     private void kirjaudu() {
-    	Dialogs.showMessageDialog("kirjautumista ei ole viel‰ lis‰tty");
+    	int i = 1;
+    	if(i == 0)
+    	{
+    		Dialogs.showMessageDialog("Salasana on v‰‰rin");
+    	}
+    	else
+    	{
+    		redirMainMenu();
+    	}
     	
-    	redirMainMenu();
+    	
     }    
     private void redirMainMenu() {
     	try {        
@@ -82,6 +91,10 @@ public class LoginController {
 	    } catch (IOException e) {
 	    	e.printStackTrace();
 	    }
+	}
+	
+	private void lopeta() {
+		Platform.exit();
 	}
 }
 
