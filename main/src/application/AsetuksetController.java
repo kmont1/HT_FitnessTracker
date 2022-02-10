@@ -15,6 +15,11 @@ import javafx.scene.control.Menu;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+/**
+ * 
+ * @author Kmontasi
+ *10.02.2022
+ */
 
 /*
  * Controlleri asetukset välilehdelle

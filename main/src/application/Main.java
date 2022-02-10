@@ -9,7 +9,7 @@ import javafx.fxml.FXMLLoader;
 /**
  * 
  * @author Kmontasi
- *aplicaation aloitus. avataan kirjautuminen.fxml
+ *10.02.2022
  */
 
 public class Main extends Application {
