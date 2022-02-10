@@ -47,17 +47,17 @@ public class UusiTreeniController {
     	poista();
     }
     //====================================================================
+    
+	/*
+	 * sulje ohjelma 
+	 */
 	private void lopeta() {
 		Platform.exit();
 	}
 	
-	private void poista() {
-    	
-    	Window stage = lopetaButton.getScene().getWindow();
-    	stage.hide();
-    }
-
-	//ohjaa rekisteröitymään
+	/*
+	 * takaisin päänäytölle
+	 */
 	private void paanaytto() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
@@ -70,6 +70,15 @@ public class UusiTreeniController {
 	    	e.printStackTrace();
 	    }
 	}
+	
+    /*
+	 * siirryttyä halutulle näytölle suljetaan edellinen ikkuna
+	 */
+	private void poista() {
+    	
+    	Window stage = lopetaButton.getScene().getWindow();
+    	stage.hide();
+    }
 	private void tallenna() {
 		Dialogs.showMessageDialog("ei vielä prkl");
 	}

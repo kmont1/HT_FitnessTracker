@@ -16,6 +16,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+/*
+ * Controlleri asetukset v‰lilehdelle
+ */
+
 public class AsetuksetController {
 
 	@FXML
@@ -60,14 +64,17 @@ public class AsetuksetController {
     
 
 //=================================================================
-
-
+	
+	/*
+	 * sulje ohjelma 
+	 */
 	private void lopeta() {
     	Platform.exit();
     }
     
-   
-    
+	/*
+	 * takaisin p‰‰n‰ytˆlle
+	 */
     private void paanaytto() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
@@ -81,7 +88,10 @@ public class AsetuksetController {
 	    }
 		
 	}
-
+       
+    /*
+	 * siirrytty‰ halutulle n‰ytˆlle suljetaan edellinen ikkuna
+	 */
 	private void poista() {
     	
     	Window stage = lopetaButton.getScene().getWindow();
@@ -89,20 +99,20 @@ public class AsetuksetController {
     }
 	
 	private void KayttajatunnusLaheta() {
-		Dialogs.showMessageDialog("Salasana on v‰‰rin");
+		Dialogs.showMessageDialog("ei toimi");
 	 }
 	private void SalasanaLaheta() {
-		Dialogs.showMessageDialog("Salasana on v‰‰rin");
+		Dialogs.showMessageDialog("ei toimi");
 		 }
 		 
 	
 	private void EtunimiLaheta() {
-		Dialogs.showMessageDialog("Salasana on v‰‰rin");
+		Dialogs.showMessageDialog("ei toimi");
 					
 		}
 				
    private void SukunimiLaheta() {
-	   Dialogs.showMessageDialog("Salasana on v‰‰rin");
+	   Dialogs.showMessageDialog("ei toimi");
 		
 	}
 }

@@ -9,7 +9,7 @@ import javafx.fxml.FXMLLoader;
 /**
  * 
  * @author Kmontasi
- *
+ *aplicaation aloitus. avataan kirjautuminen.fxml
  */
 
 public class Main extends Application {

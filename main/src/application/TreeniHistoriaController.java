@@ -37,12 +37,17 @@ public class TreeniHistoriaController {
 
 //=================================================================
     
+	/*
+	 * sulje ohjelma 
+	 */
     private void lopeta() {
     	Platform.exit();
     }
     
 
-    
+	/*
+	 * takaisin päänäytölle
+	 */
     private void paanaytto() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
@@ -56,7 +61,9 @@ public class TreeniHistoriaController {
 	    }
 		
 	}
-
+    /*
+	 * siirryttyä halutulle näytölle suljetaan edellinen ikkuna
+	 */
 	private void poista() {
     	
     	Window stage = lopetaButton.getScene().getWindow();

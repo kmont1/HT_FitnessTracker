@@ -14,6 +14,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+/*
+ * Controlleri p‰‰n‰yttˆ v‰lilehdelle
+ */
+
 public class PaanayttoController {
 		
 		@FXML
@@ -36,23 +40,43 @@ public class PaanayttoController {
 
 	    @FXML
 	    void redirLis‰‰Treeni(ActionEvent event) {
-	    	lisaaTreeni();
+	    	redirLisaaTreeni();
 	    	poista();
 	    }
 
 	    @FXML
 	    void redirTreeniHistoria(ActionEvent event) {
-	    	lisaaTreeniHistoria();
+	    	redirLisaaTreeniHistoria();
 	    	poista();
 	    }
 //=============================================================
+		/*
+		 * sulje ohjelma 
+		 */
 		private void lopeta() {
 			Platform.exit();
 		}
+		
+		/*
+		 * siirry asetukset v‰lilehdelle
+		 */
+		private void asetukset() {
+			try {        
+		        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("asetukset.fxml"));
+		        Scene scene = new Scene(root, 600, 374.4);
+		        Stage stage = new Stage();
+		        stage.setTitle("New Window");
+		        stage.setScene(scene);
+		        stage.show();
+		    } catch (IOException e) {
+		    	e.printStackTrace();
+		    }
+		}
 	    
-	    private void lisaaTreeni() {
-	    	redirLisaaTreeni();
-	    }
+		/*
+		 * siirr‰ lisaa treeni v‰lilehdelle
+		 */
+
 	    
 	    private void redirLisaaTreeni() {
 	    	try {        
@@ -67,9 +91,9 @@ public class PaanayttoController {
 		    }
 			
 		}
-	    private void lisaaTreeniHistoria() {
-	    	redirLisaaTreeniHistoria();
-	    }
+		/*
+		 * siirr‰ treenihistoria v‰lilehdelle
+		 */
 	    
 	    private void redirLisaaTreeniHistoria() {
 	    	try {        
@@ -84,22 +108,14 @@ public class PaanayttoController {
 		    }
 			
 		}
-
+	    
+		/*
+		 * siirrytty‰ halutulle sivustolle suljetaan edellinen ikkuna
+		 */
 		private void poista() {
 	    	
 	    	Window stage = lopetaButton.getScene().getWindow();
 	    	stage.hide();
 	    }
-		private void asetukset() {
-			try {        
-		        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("asetukset.fxml"));
-		        Scene scene = new Scene(root, 600, 374.4);
-		        Stage stage = new Stage();
-		        stage.setTitle("New Window");
-		        stage.setScene(scene);
-		        stage.show();
-		    } catch (IOException e) {
-		    	e.printStackTrace();
-		    }
-		}
+		
 }

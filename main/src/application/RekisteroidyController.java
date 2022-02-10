@@ -16,6 +16,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+/*
+ * Controlleri rekistöityminen välilehdelle
+ */
+
 public class RekisteroidyController {
 
     @FXML
@@ -35,21 +39,17 @@ public class RekisteroidyController {
     }
 
 //=================================================================
-    
-    
-    private void rekisteroidy() {
-    	int i = 1;
-    	if (i == 0)
-    	{
-    		Dialogs.showMessageDialog("Sähköposti on jo käytössä");
-    	}
-    	else 
-    	{
-    		redirMainMenu();
-    	}
+	/*
+	 * sulje ohjelma 
+	 */
+	private void lopeta() {
+		Platform.exit();
+	}
 	
-    }
-    
+	
+    /*
+     * siirrä päänäytölle
+     */
     private void redirMainMenu() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
@@ -64,13 +64,31 @@ public class RekisteroidyController {
 		
 	}
 
+	/*
+	 * siirryttyä halutulle näytölle suljetaan edellinen ikkuna
+	 */
 	private void poista() {
     	
     	Window stage = rekisteroidyButton.getScene().getWindow();
     	stage.hide();
     }
-	private void lopeta() {
-		Platform.exit();
-	}
+
+	
+    /*
+     * validaattori rekisteröitymiselle
+     */
+    
+    private void rekisteroidy() {
+    	int i = 1;
+    	if (i == 0)
+    	{
+    		Dialogs.showMessageDialog("Sähköposti on jo käytössä");
+    	}
+    	else 
+    	{
+    		redirMainMenu();
+    	}
+	
+    }
 }
 

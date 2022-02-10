@@ -16,6 +16,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+/*
+ * Controlleri kirjautuminen välilehdelle
+ */
 public class LoginController {
 	
 	@FXML
@@ -46,20 +49,16 @@ public class LoginController {
     }
     
     //===============================================================
-    //menetelmä kirjautumiselle
-    private void kirjaudu() {
-    	int i = 1;
-    	if(i == 0)
-    	{
-    		Dialogs.showMessageDialog("Salasana on väärin");
-    	}
-    	else
-    	{
-    		paanaytto();
-    	}
-    	
-    	
-    }    
+	/*
+	 * sulje ohjelma 
+	 */
+	private void lopeta() {
+		Platform.exit();
+	}
+	/*
+	 *avaa päänäyttö
+	 */
+
     private void paanaytto() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
@@ -73,13 +72,38 @@ public class LoginController {
 	    }
 		
 	}
+    /*
+	 * siirryttyä paanäytölle suljetaan edellinen ikkuna
+	 */
+
+
 	private void poista() {
     	
     	Window stage = kirjauduButton.getScene().getWindow();
     	stage.hide();
     }
 
-	//ohjaa rekisteröitymään
+    
+	/*
+	 *kirjaudu napin toiminta
+	 */
+    private void kirjaudu() {
+    	int i = 1;
+    	if(i == 0)
+    	{
+    		Dialogs.showMessageDialog("Salasana on väärin");
+    	}
+    	else
+    	{
+    		paanaytto();
+    	}
+    	
+    	
+    }   
+	
+	/*
+	 *siirry rekisteröitymään
+	 */
 	private void rekisteroidy() {
     	try {        
 	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("rekisteroidy.fxml"));
@@ -92,9 +116,6 @@ public class LoginController {
 	    	e.printStackTrace();
 	    }
 	}
-	
-	private void lopeta() {
-		Platform.exit();
-	}
+
 }
 
