@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LisaaLiikeController">
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </bottom>
@@ -33,22 +33,25 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Muokkaa">
+          <Menu mnemonicParsing="false">
             <items>
               <MenuItem mnemonicParsing="false" text="Muokkaa käyttäjätietoja" />
                   <MenuItem mnemonicParsing="false" text="Kirjaudu ulos" />
             </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Tietoja">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
+               <graphic>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="112.0">
+                     <children>
+                        <Button fx:id="lopetaButton" mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
+                        <Button mnemonicParsing="false" onAction="#redirTakaisin" text="Takaisin" />
+                     </children>
+                  </HBox>
+               </graphic>
           </Menu>
         </menus>
       </MenuBar>
    </top>
    <right>
-      <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" text="Jatka" underline="true" wrapText="true" BorderPane.alignment="CENTER">
+      <Button fx:id="jatkaButton" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#handleJatka" text="Jatka" underline="true" wrapText="true" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets right="50.0" />
          </BorderPane.margin>

@@ -91,7 +91,17 @@ public class UusiTreeniController {
 		Dialogs.showMessageDialog("ei vielä prkl");
 	}
 	private void UusiLiike() {
-		Dialogs.showMessageDialog("ei vielä prkl");
+		try {        
+	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("lisaaliike.fxml"));
+	        Scene scene = new Scene(root, 600, 374.4);
+	        Stage stage = new Stage();
+	        stage.setTitle("New Window");
+	        stage.setScene(scene);
+	        stage.show();
+	    } catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+		poista();
 	}
 	
 }
