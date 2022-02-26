@@ -2,6 +2,8 @@ package FitnessApp;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Random;
+
 
 /**
  *CRC-korttien kopioiminen 
@@ -22,6 +24,15 @@ public class Kayttaja {
 		
 	}
 	
+	 public void vastaaAkuAnkka() {
+
+	        Random rand =new Random();
+	        int randInt = rand.nextInt(100);
+	        nimi = "Ankka Aku ";
+	        sPosti 	= randInt+"aku.a@gmail.com" ;
+	        salasana = "sdkladka";
+	    }
+
 	
 	public void tulosta(PrintStream out) {
 		out.println(String.format("%03d", kid) + " "+ nimi+" "+sPosti);
@@ -31,21 +42,6 @@ public class Kayttaja {
 	public void tulosta(OutputStream os) {
 		tulosta(new PrintStream(os));
 	}
-	 /**
-     * Antaa jäsenelle seuraavan rekisterinumeron.
-     * @return jäsenen uusi tunnusNro
-     * @example
-     * <pre name="test">
-     *   Kayttaja aku1 = new Kayttaja();
-     *   aku1.getKid() === 0;
-     *   aku1.rekisteroi();
-     *   Kayttaja aku2 = new Kayttaja();
-     *   aku2.rekisteroi();
-     *   int n1 = aku1.getKid();
-     *   int n2 = aku2.getKid();
-     *   n1 === n2-1;
-     * </pre>
-     */
 
 	
 	public int rekisteroi() {
@@ -67,11 +63,13 @@ public class Kayttaja {
 		aku.rekisteroi();
 		aku2.rekisteroi();
 		
+		aku.vastaaAkuAnkka();
+		aku2.vastaaAkuAnkka();
+		
 		aku.tulosta(System.out);
 		aku2.tulosta(System.out);
 		
-//		aku.vastaaAkuAnkka();
-//		aku2.vastaaAkuAnkka();
+
 		
 	}
 
