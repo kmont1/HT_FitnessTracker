@@ -2,8 +2,12 @@ package application;
 
 
 
-import java.io.IOException;
 
+import java.io.IOException;
+import java.util.regex.Pattern;
+
+import FitnessApp.FitnessApp;
+import FitnessApp.Kayttaja;
 import fi.jyu.mit.fxgui.Dialogs;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -12,6 +16,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -26,7 +32,15 @@ import javafx.stage.Window;
  */
 
 public class RekisteroidyController {
-
+	@FXML
+    private TextField etunimiField;
+	@FXML
+    private TextField sukunimiField;
+	@FXML
+	private TextField sPostiField;
+	@FXML
+    private PasswordField salasanaField;
+	
     @FXML
     private Menu mainLopeta;
     @FXML
@@ -39,11 +53,19 @@ public class RekisteroidyController {
 
     @FXML
     void handlePaanaytto(ActionEvent event) {
+
     	rekisteroidy();
+
     	poista();
     }
 
 //=================================================================
+    private FitnessApp fitnessApp = new FitnessApp();
+    
+    public void setFitnessApp(FitnessApp fitnessApp) {
+    	this.fitnessApp = fitnessApp;
+    }
+    
 	/*
 	 * sulje ohjelma 
 	 */
@@ -83,17 +105,114 @@ public class RekisteroidyController {
      * validaattori rekisteröitymiselle
      */
     
-    private void rekisteroidy() {
+    private int rekisteroidy() {
+    	int i = 0;
+    	i = uusiKayttaja();
+    	if (i == 1)
+        	{
+        		sPostiField.setStyle("-fx-text-fill: red;");
+       		Dialogs.showMessageDialog("Sähköposti on väärässä muodossa");
+        		i =uusiKayttaja();
+        		
+        	}
+    	if (i == 2)
+        	{
+        		redirMainMenu();
+        		
+        	}
+    	return i -1;	
+//    	//i = uusiKayttaja();
+//    	
+//    	
+//	
+//    	//for (int k = 0; k < 2;) {
+//    		k = uusiKayttaja();
+//    		
+//    		if ( k== 100)
+//        	{
+//        		Dialogs.showMessageDialog("Virhe kirjautumisesssa");
+//        		i =uusiKayttaja();
+//        	}
+//        	if (k == 1)
+//        	{
+//        		sPostiField.setStyle("-fx-text-fill: red;");
+////        		Dialogs.showMessageDialog("Sähköposti on väärässä muodossa");
+//        		i =uusiKayttaja();
+//        	}
+//        	
+//        	i = k;
+//    	//}
+//    	if (i == 2)
+//    	{
+//    		redirMainMenu();
+//    	}
+    }
+    
+    
+    protected void hae() {
+ 
+		for (int i = 0; i < fitnessApp.getKayttajia(); i++) {
+            Kayttaja kayttaja = fitnessApp.annaKayttaja(i);
+            System.out.println("kayttaja paikassa: " + i);
+            kayttaja.tulosta(System.out);
+        }
+       
+    }
+
+    
+    private int uusiKayttaja() {
+    	
+    	int tarkistajaInt = 1;
+    	this.fitnessApp = fitnessApp;
+    	Kayttaja uusi = new Kayttaja();
+    	uusi.rekisteroi();
+    	uusi.vastaaAkuAnkka();
+    	uusi.nimi = etunimiField.getText() +" "+ sukunimiField.getText();
+    	uusi.sPosti = sPostiField.getText();
+    	
+    	tarkistajaInt = tarkistaja(sPostiField.getText(), etunimiField.getText(), sukunimiField.getText(), uusi);  	
+    	sPostiField.clear();
+    	
+    	return tarkistajaInt;
+    }
+    
+    private int tarkistaja(String sposti, String etu, String suku, Kayttaja uusi) {
     	int i = 1;
-    	if (i == 0)
-    	{
-    		Dialogs.showMessageDialog("Sähköposti on jo käytössä");
+    	int sp = 1;
+    	int e = 1;
+    	int s = 1;
+    	if(sPostiTarkistaja(sposti)== true) {
+
+    		sp = 2;
     	}
-    	else 
-    	{
-    		redirMainMenu();
+    	if(etu.length()> 1) {
+
+    		e = 2;
     	}
-	
+    	if(suku.length()> 1) {
+
+    		s = 2;
+    	}
+    	if(s ==2 && e == 2 && sp == 2)
+    	{
+    		fitnessApp.lisaa(uusi);	
+    		hae();
+    		i= 2;
+    	}
+    	return i;
+    }
+    
+    public static boolean sPostiTarkistaja(String sposti)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                            "[a-zA-Z0-9_+&*-]+)*@" +
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                            "A-Z]{2,7}$";
+                              
+        Pattern pat = Pattern.compile(emailRegex);
+        if (sposti == null)
+            return false;
+        return pat.matcher(sposti).matches();
     }
 }
 

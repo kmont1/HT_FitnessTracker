@@ -6,7 +6,7 @@ package FitnessApp;
  */
 public class Kayttajat {
 
-	private static final int MAX_JASENIA   = 5;
+	private static final int MAX_JASENIA   = 1;
 	private int              lkm           = 0;
 	private String           tiedostonNimi = "";
 	private Kayttaja         alkiot[]      = new Kayttaja[MAX_JASENIA];
@@ -22,11 +22,19 @@ public class Kayttajat {
 	
 	
 	 public void lisaa(Kayttaja kayttaja) {
-		 if(lkm >=alkiot.length) return;
+		 if(lkm >=alkiot.length) uusiAlkio();
 		 this.alkiot[this.lkm] = kayttaja;
 		 lkm++;
 	 }
 	 
+	public void uusiAlkio() { 
+		Kayttaja newArr[] = new Kayttaja[alkiot.length+1];
+		 for (int i = 0; i < alkiot.length; i++)
+	            newArr[i] = alkiot[i];
+		  alkiot = newArr;
+		  
+		}
+
 	 public Kayttaja anna(int i) throws IndexOutOfBoundsException {
 	        if (i < 0 || lkm <= i)
 	            throw new IndexOutOfBoundsException("Laiton indeksi: " + i);
@@ -46,6 +54,7 @@ public class Kayttajat {
 		aku2.vastaaAkuAnkka();
 		
 		kayttajat.lisaa(aku);
+		kayttajat.lisaa(aku2);
 		kayttajat.lisaa(aku2);
 		
 		System.out.println("============= Jäsenet testi =================");

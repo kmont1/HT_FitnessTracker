@@ -13,9 +13,9 @@ import java.util.Random;
 public class Kayttaja {
 	
 	private int 		kid;
-	private String 		nimi			= "";
-	private String 		sPosti 			= "";
-	private String 		salasana 		= "";
+	public String 		nimi			= "";
+	public String 		sPosti 			= "";
+	public String 		salasana 		= "";
 	
 	private static int 	seuraavaNro 	= 1;
 	
@@ -28,9 +28,14 @@ public class Kayttaja {
 
 	        Random rand =new Random();
 	        int randInt = rand.nextInt(100);
+//	        nimi = application.RekisteroidyController.get;
+//	        sPosti 	= randInt+"aku.a@gmail.com" ;
+//	        salasana = "sdkladka";
+	        
 	        nimi = "Ankka Aku ";
 	        sPosti 	= randInt+"aku.a@gmail.com" ;
 	        salasana = "sdkladka";
+	        
 	    }
 
 	

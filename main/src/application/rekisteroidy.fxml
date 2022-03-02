@@ -14,22 +14,22 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField alignment="CENTER" promptText="Syötä etunimi:">
+            <TextField fx:id="etunimiField" alignment="CENTER" promptText="Syötä etunimi:">
                <VBox.margin>
                   <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
                </VBox.margin>
             </TextField>
-            <TextField alignment="CENTER" layoutX="60.0" layoutY="25.0" promptText="Syötä sukunimi:">
+            <TextField fx:id="sukunimiField" alignment="CENTER" layoutX="60.0" layoutY="25.0" promptText="Syötä sukunimi:">
                <VBox.margin>
                   <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
                </VBox.margin>
             </TextField>
-            <TextField alignment="CENTER" layoutX="10.0" layoutY="102.0" promptText="Syötä sähköposti:">
+            <TextField fx:id="sPostiField" alignment="CENTER" layoutX="10.0" layoutY="102.0" promptText="Syötä sähköposti:">
                <VBox.margin>
                   <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
                </VBox.margin>
             </TextField>
-            <PasswordField alignment="CENTER" promptText="Keksi salasana:">
+            <PasswordField fx:id="salasanaField" alignment="CENTER" promptText="Keksi salasana:">
                <VBox.margin>
                   <Insets bottom="15.0" left="50.0" right="50.0" top="15.0" />
                </VBox.margin>

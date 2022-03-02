@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 
+import FitnessApp.FitnessApp;
+import FitnessApp.Kayttaja;
 import fi.jyu.mit.fxgui.Dialogs;
 import fi.jyu.mit.fxgui.ModalController;
 import javafx.application.Platform;
@@ -53,7 +55,21 @@ public class LoginController {
     	lopeta();
     }
     
-    //===============================================================
+    //=============================================================== 
+    private FitnessApp fitnessApp;
+    
+    
+    public void setFitnessApp(FitnessApp fitnessApp) {
+    	this.fitnessApp = fitnessApp;
+    }
+    
+    
+    public boolean voikoSulkea() {
+        tallenna();
+        return true;
+    }
+
+    
 	/*
 	 * sulje ohjelma 
 	 */
@@ -121,6 +137,10 @@ public class LoginController {
 	    	e.printStackTrace();
 	    }
 	}
+	
+	private void tallenna() {
+	        Dialogs.showMessageDialog("Tallennetetaan! Mutta ei toimi vielä");
+	    }
 
 }
 
