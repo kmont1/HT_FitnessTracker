@@ -15,7 +15,7 @@ public class Kayttajat {
 	        return lkm;
 	}
 
-	
+//	uusi alkio
 	public Kayttajat() {
 		alkiot = new Kayttaja[MAX_JASENIA];
 	}
@@ -26,7 +26,7 @@ public class Kayttajat {
 		 this.alkiot[this.lkm] = kayttaja;
 		 lkm++;
 	 }
-	 
+//	 Uuden alkion lis‰‰minen jos liian lyhyt ja t‰yttyy
 	public void uusiAlkio() { 
 		Kayttaja newArr[] = new Kayttaja[alkiot.length+1];
 		 for (int i = 0; i < alkiot.length; i++)
@@ -34,14 +34,14 @@ public class Kayttajat {
 		  alkiot = newArr;
 		  
 		}
-
+//jos ei tarpeeksi kohtia. ei k‰ytˆss‰
 	 public Kayttaja anna(int i) throws IndexOutOfBoundsException {
 	        if (i < 0 || lkm <= i)
 	            throw new IndexOutOfBoundsException("Laiton indeksi: " + i);
 	        return alkiot[i];
 	    }
 
-	 
+// p‰‰ohjelma joka tuo tarvittavat kayttajat. Luonti rekisterˆityminen sek‰ lis‰‰minen tapahtuu kayttaja aliohjelman kautta. 
 	public static void main(String[] args) {
 		Kayttajat kayttajat = new Kayttajat();
 		Kayttaja aku = new Kayttaja();

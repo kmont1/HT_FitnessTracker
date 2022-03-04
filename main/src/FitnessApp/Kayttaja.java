@@ -11,7 +11,7 @@ import java.util.Random;
  *
  */
 public class Kayttaja {
-	
+
 	private int 		kid;
 	public String 		nimi			= "";
 	public String 		sPosti 			= "";
@@ -23,7 +23,7 @@ public class Kayttaja {
 	public Kayttaja() {
 		
 	}
-	
+//	Luo valitun aku ankan sekä antaa tarvittavat arvot
 	 public void vastaaAkuAnkka() {
 
 	        Random rand =new Random();
@@ -38,28 +38,29 @@ public class Kayttaja {
 	        
 	    }
 
-	
+//		Tulosta vastaanotettu käyttäjä
+
 	public void tulosta(PrintStream out) {
 		out.println(String.format("%03d", kid) + " "+ nimi+" "+sPosti);
 	}
 	
-	
+//	Tulosta vastaanotettu käyttäjä ei käytössä vielä
 	public void tulosta(OutputStream os) {
 		tulosta(new PrintStream(os));
 	}
 
-	
+//	Reksiteröi käyttäjä
 	public int rekisteroi() {
 		this.kid = seuraavaNro;
 		seuraavaNro++;
 		return this.kid;
 	}
 	
-	
+//	Hae KID
 	 public int getKid() {
 	        return kid;
 	    }
-
+//Pääohjelma joka rekisteröi, vastaa sekä tulostaa käyttäjät
 
 	public static void main(String[] args) {
 		Kayttaja aku = new Kayttaja();

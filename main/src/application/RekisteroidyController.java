@@ -108,7 +108,7 @@ public class RekisteroidyController {
     private int rekisteroidy() {
     	int i = 0;
     	i = uusiKayttaja();
-    	if (i == 1)
+    	if (i == 1)  
         	{
         		sPostiField.setStyle("-fx-text-fill: red;");
        		Dialogs.showMessageDialog("Sähköposti on väärässä muodossa");
@@ -148,6 +148,7 @@ public class RekisteroidyController {
 //    	}
     }
     
+//    haetaan käyttäjä
     
     protected void hae() {
  
@@ -158,7 +159,7 @@ public class RekisteroidyController {
         }
        
     }
-
+//luo uusi käyttäjä hankkimalla se textfieldistä, sekä lähetä validaaattorille
     
     private int uusiKayttaja() {
     	
@@ -176,6 +177,7 @@ public class RekisteroidyController {
     	return tarkistajaInt;
     }
     
+//    tarkistaja joka uudellenohjaa spostin fieldin uusille aliohjelmille. muut tarkistukset suoritetaan saman aliohjelmman sisällä
     private int tarkistaja(String sposti, String etu, String suku, Kayttaja uusi) {
     	int i = 1;
     	int sp = 1;
@@ -201,7 +203,7 @@ public class RekisteroidyController {
     	}
     	return i;
     }
-    
+//   tarkistaja spostille
     public static boolean sPostiTarkistaja(String sposti)
     {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
