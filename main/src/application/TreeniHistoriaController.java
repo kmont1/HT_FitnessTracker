@@ -27,7 +27,7 @@ import javafx.stage.Window;
  *10.02.2022
  */
 
-public class TreeniHistoriaController implements Initializable {
+public class TreeniHistoriaController extends FitnessApp implements Initializable {
 	
     @FXML
     private TextField eka;
@@ -96,6 +96,7 @@ public class TreeniHistoriaController implements Initializable {
         System.out.println("treenihistoria  "+nykyinenKID);
         
     }
+    //poista sivu
 	private void poista() {
     	
     	Window stage = lopetaButton.getScene().getWindow();
@@ -106,7 +107,7 @@ public class TreeniHistoriaController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 		
 	}
 	

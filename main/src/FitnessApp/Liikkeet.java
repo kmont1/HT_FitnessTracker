@@ -20,7 +20,6 @@ public class Liikkeet {
 		alkiot = new Liike[MAX_LIIKEET];
 	}
 	
-	
 	 public void lisaa(Liike liike) {
 		 if(lkm >=alkiot.length) uusiAlkio();
 		 this.alkiot[this.lkm] = liike;
@@ -34,14 +33,14 @@ public class Liikkeet {
 		  alkiot = newArr;
 		  
 		}
-//jos ei tarpeeksi kohtia. ei käytössä
+//etsi alkiosta haluttu liike. ei käytössä
 	 public Liike anna(int i) throws IndexOutOfBoundsException {
 	        if (i < 0 || lkm <= i)
 	            throw new IndexOutOfBoundsException("Laiton indeksi: " + i);
 	        return alkiot[i];
 	    }
 
-// pääohjelma joka tuo tarvittavat kayttajat. Luonti rekisteröityminen sekä lisääminen tapahtuu kayttaja aliohjelman kautta. 
+// pääohjelma joka tuo tarvittavat liikkeet. Luonti rekisteröityminen sekä lisääminen tapahtuu liikkeet aliohjelman kautta. 
 	public static void main(String[] args) {
 		Liikkeet Liikkeet = new Liikkeet();
 		Liike eka = new Liike();

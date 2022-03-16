@@ -10,7 +10,7 @@ public class TreeniKerrat {
 	private int              lkm           = 0;
 	private String           tiedostonNimi = "";
 	private TreeniKerta         alkiot[]      = new TreeniKerta[MAX_ALKIO];
-
+//PalautaLKM
 	public int getLkm() {
 	        return lkm;
 	}
@@ -20,7 +20,7 @@ public class TreeniKerrat {
 		alkiot = new TreeniKerta[MAX_ALKIO];
 	}
 	
-	
+//lisaa alkio jos täynnä 	
 	 public void lisaa(TreeniKerta treeniKerta) {
 		 if(lkm >=alkiot.length) uusiAlkio();
 		 this.alkiot[this.lkm] = treeniKerta;
@@ -34,14 +34,14 @@ public class TreeniKerrat {
 		  alkiot = newArr;
 		  
 		}
-//jos ei tarpeeksi kohtia. ei käytössä
+//auttaa haussa. ei käytössä
 	 public TreeniKerta anna(int i) throws IndexOutOfBoundsException {
 	        if (i < 0 || lkm <= i)
 	            throw new IndexOutOfBoundsException("Laiton indeksi: " + i);
 	        return alkiot[i];
 	    }
 
-// pääohjelma joka tuo tarvittavat kayttajat. Luonti rekisteröityminen sekä lisääminen tapahtuu kayttaja aliohjelman kautta. 
+// pääohjelma joka tuo tarvittavat treenikerrat. Luonti rekisteröityminen sekä lisääminen tapahtuu treenikerrat aliohjelman kautta. 
 	public static void main(String[] args) {
 		TreeniKerrat treeniKerrat = new TreeniKerrat();
 		

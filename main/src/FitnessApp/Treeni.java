@@ -26,7 +26,9 @@ public class Treeni {
 	public Treeni() {
 		
 	}
-//	Luo valitun aku ankan sekä antaa tarvittavat arvot
+	
+	
+//	Luo valitun treenin sekä antaa tarvittavat arvot
 	 public void vastaaAkunTreeni() {
 
 	        Random rand =new Random();
@@ -41,29 +43,29 @@ public class Treeni {
 	        
 	    }
 
-//		Tulosta vastaanotettu käyttäjä
+//		Tulosta vastaanotettu treeni ja sen ominaisuudet
 
 	public void tulosta(PrintStream out) {
 		out.println(String.format("%03d", tid) + " "+ lid+" "+painot+" "+sarjoja+" "+toistoja+" "+tkid);
 	}
 	
-//	Tulosta vastaanotettu käyttäjä ei käytössä vielä
+//	Tulosta vastaanotettu treeni ei käytössä vielä
 	public void tulosta(OutputStream os) {
 		tulosta(new PrintStream(os));
 	}
 
-//	Reksiteröi käyttäjä
+//	Reksiteröi treeni
 	public int luoTreeni() {
 		this.tid = seuraavaNro;
 		seuraavaNro++;
 		return this.tid;
 	}
 	
-//	Hae KID
+//	Hae tID
 	 public int getTid() {
 	        return tid;
 	    }
-//Pääohjelma joka rekisteröi, vastaa sekä tulostaa käyttäjät
+//Pääohjelma joka rekisteröi, vastaa sekä tulostaa treeniy
 
 	public static void main(String[] args) {
 		Treeni akunEka = new Treeni();

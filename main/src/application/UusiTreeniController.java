@@ -144,6 +144,7 @@ public class UusiTreeniController implements Initializable {
     	
 
 	}
+	//Vie uusi liike v‰lilehdelle 
 	private void UusiLiike() {
 		try {        
     		FXMLLoader loader = new 		  FXMLLoader(getClass().getResource("LisaaLiike.fxml"));
@@ -194,7 +195,7 @@ public void initialize(URL url, ResourceBundle rb) {
 	
 
 } 	
-
+//luo tkiden sek‰ muut tarpeelliset arvot
 public void l‰het‰Tarkistaja(int i) {
 	TreeniKerta uusiT = new TreeniKerta();
 	 uusiT.luo();
@@ -203,7 +204,7 @@ public void l‰het‰Tarkistaja(int i) {
 	 nykyinenTKID = uusiT.getTKID();
 	 System.out.println(nykyinenTKID);
 } 	
-
+//aseta oikea tkid
 public void l‰het‰TKID(int i) {
 	 nykyinenTKID = i;
 	 System.out.println(nykyinenTKID);

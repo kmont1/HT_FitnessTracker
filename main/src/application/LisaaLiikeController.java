@@ -104,7 +104,7 @@ public class LisaaLiikeController {
 		// vastaanota kid
 		 public void l‰het‰KID(int l‰hetettyKID){
 		    	nykyinenKID =l‰hetettyKID; 
-		        System.out.println("vittu kyll‰ se toimii, mene nyt nukkumaan saatanan autisti "+nykyinenKID);
+		        System.out.println("liiketoimii  "+nykyinenKID);
 		        
 		    }
 //		 ota sis‰‰npistetty arvo lis‰‰ se liikkeeksi ja l‰het‰ eteenp‰in
@@ -115,6 +115,8 @@ public class LisaaLiikeController {
 	    	
 			
 		}
+	    
+//lisaa  liikkeeseen
 	    private void lisaa() {
 	    	String input = liikeInput.getText();
 	    	if (input.length() > 3) {
@@ -131,7 +133,7 @@ public class LisaaLiikeController {
 	    	    	}
 	
 }
-
+//vastaanota tkid
 		public void l‰het‰TKID(int l‰hetettyTKID) {
 			nykyinenTKID = l‰hetettyTKID;
 			

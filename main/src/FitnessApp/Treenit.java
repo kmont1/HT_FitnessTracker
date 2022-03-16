@@ -34,14 +34,14 @@ public class Treenit {
 		  alkiot = newArr;
 		  
 		}
-//jos ei tarpeeksi kohtia. ei käytössä
+//löydä haluttu alkio. ei käytössä
 	 public Treeni anna(int i) throws IndexOutOfBoundsException {
 	        if (i < 0 || lkm <= i)
 	            throw new IndexOutOfBoundsException("Laiton indeksi: " + i);
 	        return alkiot[i];
 	    }
 
-// pääohjelma joka tuo tarvittavat kayttajat. Luonti rekisteröityminen sekä lisääminen tapahtuu kayttaja aliohjelman kautta. 
+// pääohjelma joka tuo tarvittavat Treenit. Luonti rekisteröityminen sekä lisääminen tapahtuu Treenit aliohjelman kautta. 
 	public static void main(String[] args) {
 		Treenit treenit = new Treenit();
 		

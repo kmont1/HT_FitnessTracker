@@ -80,10 +80,8 @@ public class FitnessApp {
 		}
 				
 	
-//	public Kayttaja tkLisaaUlkoiset() {
-//		
-//	}
-//
+
+
 	
 	
 //luo käyttäjät sekä ohjaa luonti kayttaja lukan aliohjelmiin kuten rekisteroi, vastaaAkuAnkka sekä lisaa; kertoo myöskin että mikä käyttäjän lakinumero on

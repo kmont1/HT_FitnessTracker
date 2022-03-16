@@ -26,7 +26,7 @@ public class TreeniKerta {
 	public TreeniKerta() {
 		
 	}
-//	Luo valitun aku ankan sekä antaa tarvittavat arvot
+//	Luo valitun treenikerran sekä antaa tarvittavat arvot
 	 public void VastaaMalli() {
 		 
 //		 PVM
@@ -48,18 +48,18 @@ public class TreeniKerta {
 		tulosta(new PrintStream(os));
 	}
 
-//	Reksiteröi käyttäjä
+//	Reksiteröi treenikerrat
 	public int luo() {
 		this.tkid = seuraavaNro;
 		seuraavaNro++;
 		return this.tkid;
 	}
 	
-//	Hae KID
+//	Hae TKID
 	 public int getTKID() {
 	        return tkid;
 	    }
-//Pääohjelma joka rekisteröi, vastaa sekä tulostaa käyttäjät
+//Pääohjelma joka rekisteröi, vastaa sekä tulostaa treenikerrat
 
 	public static void main(String[] args) {
 		TreeniKerta eka = new TreeniKerta();
