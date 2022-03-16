@@ -10,38 +10,41 @@ import java.util.Random;
  * @author Khondker
  *
  */
-public class Kayttaja {
+public class Treeni {
+	
+	public int 		tid;
+	public int 		lid;
+	public String 		sarjoja;
+	public String 		toistoja;
+	public String 		painot;
+	public int 		tkid;
 
-	public int 			kid;
-	public String 		nimi			= "";
-	public String 		sPosti 			= "";
-	public String 		salasana 		= "";
 	
 	private static int 	seuraavaNro 	= 1;
 	
 	
-	public Kayttaja() {
+	public Treeni() {
 		
 	}
 //	Luo valitun aku ankan sekä antaa tarvittavat arvot
-	 public void vastaaAkuAnkka() {
+	 public void vastaaAkunTreeni() {
 
 	        Random rand =new Random();
-	        int randInt = rand.nextInt(100);
+	        int randInt = rand.nextInt(10);
 //	        nimi = application.RekisteroidyController.get;
 //	        sPosti 	= randInt+"aku.a@gmail.com" ;
 //	        salasana = "sdkladka";
 	        
-	        nimi = "Ankka Aku ";
-	        sPosti 	= randInt+"aku.a@gmail.com" ;
-	        salasana = "sdkladka";
+	        sarjoja = "1";
+	        toistoja 	= "44";
+	        painot = "12";
 	        
 	    }
 
 //		Tulosta vastaanotettu käyttäjä
 
 	public void tulosta(PrintStream out) {
-		out.println(String.format("%03d", kid) + " "+ nimi+" "+sPosti);
+		out.println(String.format("%03d", tid) + " "+ lid+" "+painot+" "+sarjoja+" "+toistoja+" "+tkid);
 	}
 	
 //	Tulosta vastaanotettu käyttäjä ei käytössä vielä
@@ -50,30 +53,30 @@ public class Kayttaja {
 	}
 
 //	Reksiteröi käyttäjä
-	public int rekisteroi() {
-		this.kid = seuraavaNro;
+	public int luoTreeni() {
+		this.tid = seuraavaNro;
 		seuraavaNro++;
-		return this.kid;
+		return this.tid;
 	}
 	
 //	Hae KID
-	 public int getKid() {
-	        return kid;
+	 public int getTid() {
+	        return tid;
 	    }
 //Pääohjelma joka rekisteröi, vastaa sekä tulostaa käyttäjät
 
 	public static void main(String[] args) {
-		Kayttaja aku = new Kayttaja();
-		Kayttaja aku2 = new Kayttaja();
+		Treeni akunEka = new Treeni();
+		Treeni akunToka = new Treeni();
 		
-		aku.rekisteroi();
-		aku2.rekisteroi();
+		akunEka.luoTreeni();
+		akunToka.luoTreeni();
 		
-		aku.vastaaAkuAnkka();
-		aku2.vastaaAkuAnkka();
+		akunEka.vastaaAkunTreeni();
+		akunToka.vastaaAkunTreeni();
 		
-		aku.tulosta(System.out);
-		aku2.tulosta(System.out);
+		akunEka.tulosta(System.out);
+		akunToka.tulosta(System.out);
 		
 
 		

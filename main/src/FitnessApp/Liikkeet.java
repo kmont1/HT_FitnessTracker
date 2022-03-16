@@ -4,71 +4,69 @@ package FitnessApp;
  * @author Khondker
  *
  */
-public class Kayttajat {
+public class Liikkeet {
 
-	private static final int MAX_JASENIA   = 1;
+	private static final int MAX_LIIKEET   = 1;
 	private int              lkm           = 0;
 	private String           tiedostonNimi = "";
-	public Kayttaja         alkiot[]      = new Kayttaja[MAX_JASENIA];
+	private Liike         alkiot[]= new Liike[MAX_LIIKEET];
 
 	public int getLkm() {
 	        return lkm;
 	}
 
 //	uusi alkio
-	public Kayttajat() {
-		
+	public Liikkeet() {
+		alkiot = new Liike[MAX_LIIKEET];
 	}
 	
 	
-	 public void lisaa(Kayttaja kayttaja) {
+	 public void lisaa(Liike liike) {
 		 if(lkm >=alkiot.length) uusiAlkio();
-		 this.alkiot[this.lkm] = kayttaja;
+		 this.alkiot[this.lkm] = liike;
 		 lkm++;
 	 }
 //	 Uuden alkion lis‰‰minen jos liian lyhyt ja t‰yttyy
 	public void uusiAlkio() { 
-		Kayttaja newArr[] = new Kayttaja[alkiot.length+1];
+		Liike newArr[] = new Liike[alkiot.length+1];
 		 for (int i = 0; i < alkiot.length; i++)
 	            newArr[i] = alkiot[i];
 		  alkiot = newArr;
 		  
 		}
-//anna i alkiot
-	 public Kayttaja anna(int i) throws IndexOutOfBoundsException {
+//jos ei tarpeeksi kohtia. ei k‰ytˆss‰
+	 public Liike anna(int i) throws IndexOutOfBoundsException {
 	        if (i < 0 || lkm <= i)
 	            throw new IndexOutOfBoundsException("Laiton indeksi: " + i);
 	        return alkiot[i];
 	    }
 
-	 
-	
 // p‰‰ohjelma joka tuo tarvittavat kayttajat. Luonti rekisterˆityminen sek‰ lis‰‰minen tapahtuu kayttaja aliohjelman kautta. 
 	public static void main(String[] args) {
-		Kayttajat kayttajat = new Kayttajat();
-		Kayttaja aku = new Kayttaja();
-		Kayttaja aku2 = new Kayttaja();
+		Liikkeet Liikkeet = new Liikkeet();
+		Liike eka = new Liike();
 		
-		aku.rekisteroi();
-		aku2.rekisteroi();
 		
-		aku.vastaaAkuAnkka();
-		aku2.vastaaAkuAnkka();
+		eka.luoLiike();
+	
 		
-		kayttajat.lisaa(aku);
-		kayttajat.lisaa(aku2);
-		kayttajat.lisaa(aku2);
+		eka.vastaaLiikeNimi("HAUISKƒƒNT÷");
+		
+		
+		Liikkeet.lisaa(eka);
+		Liikkeet.lisaa(eka);
+		Liikkeet.lisaa(eka);
+
 		
 		System.out.println("============= J‰senet testi =================");
 
-        for (int i = 0; i < kayttajat.getLkm(); i++) {
-            Kayttaja kayttaja = kayttajat.anna(i);
+        for (int i = 0; i < Liikkeet.getLkm(); i++) {
+        	Liike liike = Liikkeet.anna(i);
             System.out.println("J‰sen nro: " + i);
-            kayttaja.tulosta(System.out);
+            liike.tulosta(System.out);
         }
-        
-        
-        
+
+
 	}
 
 }

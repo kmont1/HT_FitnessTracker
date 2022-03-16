@@ -8,17 +8,18 @@ import java.util.regex.Pattern;
 
 import FitnessApp.FitnessApp;
 import FitnessApp.Kayttaja;
-import fi.jyu.mit.fxgui.Dialogs;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 /**
@@ -61,6 +62,9 @@ public class RekisteroidyController {
 
 //=================================================================
     private FitnessApp fitnessApp = new FitnessApp();
+    private int nykyinenKID ;
+    
+
     
     public void setFitnessApp(FitnessApp fitnessApp) {
     	this.fitnessApp = fitnessApp;
@@ -79,12 +83,23 @@ public class RekisteroidyController {
      */
     private void redirMainMenu() {
     	try {        
-	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
-	        Scene scene = new Scene(root, 600, 374.4);
+    		
+    		FXMLLoader loader = new 		  FXMLLoader(getClass().getResource("paanaytto.fxml"));
+            Parent root = loader.load();    		
+	        PaanayttoController paanaytto = loader.getController();
+	        paanaytto.lähetäKID(nykyinenKID);
+	        
 	        Stage stage = new Stage();
-	        stage.setTitle("New Window");
-	        stage.setScene(scene);
+	        stage.setScene(new Scene(root));
+	        stage.setTitle("help plz");
 	        stage.show();
+	        
+//	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
+//	        Scene scene = new Scene(root, 600, 374.4);
+//	        Stage stage = new Stage();
+//	        stage.setTitle("New Window");
+//	        stage.setScene(scene);
+//	        stage.show();
 	    } catch (IOException e) {
 	    	e.printStackTrace();
 	    }
@@ -111,12 +126,19 @@ public class RekisteroidyController {
     	if (i == 1)  
         	{
         		sPostiField.setStyle("-fx-text-fill: red;");
-       		Dialogs.showMessageDialog("Sähköposti on väärässä muodossa");
+//       		Dialogs.showMessageDialog("Sähköposti on väärässä muodossa");
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Huomautus");
+                alert.setHeaderText(null);
+                alert.setContentText("Huomasithan että joulu meni jo!");
+                alert.showAndWait();
         		i =uusiKayttaja();
         		
         	}
     	if (i == 2)
         	{
+    			
+    			
         		redirMainMenu();
         		
         	}
@@ -168,8 +190,11 @@ public class RekisteroidyController {
     	Kayttaja uusi = new Kayttaja();
     	uusi.rekisteroi();
     	uusi.vastaaAkuAnkka();
+    	nykyinenKID = uusi.getKid();
     	uusi.nimi = etunimiField.getText() +" "+ sukunimiField.getText();
     	uusi.sPosti = sPostiField.getText();
+    	
+    	int nykyinenKID = uusi.kid;
     	
     	tarkistajaInt = tarkistaja(sPostiField.getText(), etunimiField.getText(), sukunimiField.getText(), uusi);  	
     	sPostiField.clear();
@@ -203,6 +228,11 @@ public class RekisteroidyController {
     	}
     	return i;
     }
+    // palauta nykyinenkid
+	 public int getNykyinenKID() {
+	        return nykyinenKID;
+	    }
+	 
 //   tarkistaja spostille
     public static boolean sPostiTarkistaja(String sposti)
     {
