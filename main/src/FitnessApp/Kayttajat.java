@@ -1,4 +1,16 @@
 package FitnessApp;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Scanner;
+
 /**
  *CRC-korttien kopioiminen 
  * @author Khondker
@@ -44,7 +56,7 @@ public class Kayttajat {
 	 
 	
 // pääohjelma joka tuo tarvittavat kayttajat. Luonti rekisteröityminen sekä lisääminen tapahtuu kayttaja aliohjelman kautta. 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Kayttajat kayttajat = new Kayttajat();
 		Kayttaja aku = new Kayttaja();
 		Kayttaja aku2 = new Kayttaja();
@@ -61,13 +73,17 @@ public class Kayttajat {
 		
 		System.out.println("============= Jäsenet testi =================");
 
+		
         for (int i = 0; i < kayttajat.getLkm(); i++) {
             Kayttaja kayttaja = kayttajat.anna(i);
             System.out.println("Jäsen nro: " + i);
             kayttaja.tulosta(System.out);
+            
         }
         
         
+       
+       
         
 	}
 

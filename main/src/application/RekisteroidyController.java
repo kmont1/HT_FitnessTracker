@@ -193,7 +193,12 @@ public class RekisteroidyController {
     	nykyinenKID = uusi.getKid();
     	uusi.nimi = etunimiField.getText() +" "+ sukunimiField.getText();
     	uusi.sPosti = sPostiField.getText();
-    	
+    	try {
+			uusi.tallenna();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	int nykyinenKID = uusi.kid;
     	
     	tarkistajaInt = tarkistaja(sPostiField.getText(), etunimiField.getText(), sukunimiField.getText(), uusi);  	
