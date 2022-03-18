@@ -1,8 +1,15 @@
 package FitnessApp;
 
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.io.Writer;
 import java.util.Random;
+import java.util.Scanner;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime;    
  
@@ -15,7 +22,7 @@ import java.time.LocalDateTime;
 public class TreeniKerta {
 
 	public int 		tkid;
-	private int 		kid;
+	public int 		kid;
 	public String 		PVM 			= "";
 	
 	static DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
@@ -50,9 +57,42 @@ public class TreeniKerta {
 
 //	Reksiteröi treenikerrat
 	public int luo() {
-		this.tkid = seuraavaNro;
-		seuraavaNro++;
+		try {
+			this.tkid = haeSeuraavaNro()+1;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return this.tkid;
+	}
+	
+	private int haeSeuraavaNro() throws FileNotFoundException {
+	    int i = 0;
+	    int tulos = 0;
+	    char t = 'a';
+	    
+	    try  
+	    	{  
+	  FileInputStream fis=new FileInputStream("C:\\Users\\Khondker\\Dropbox\\HT_Alpha\\HT_FitnessTracker\\main\\Databases\\Treenikerrat.txt");       
+	  Scanner sc=new Scanner(fis);   
+	   
+	    		while(sc.hasNextLine())  
+	    		{  
+	    			
+//	    		System.out.println(sc.nextLine().charAt(0));   
+	    		t = sc.nextLine().charAt(0);
+	    		System.out.println(t); 
+	  }  
+	    		sc.close();
+	}  
+	catch(IOException e)  
+	    {  
+	   e.printStackTrace();  
+	}  
+	    
+	    tulos = Character.getNumericValue(t);  
+	    System.out.println("saat tämän "+tulos); 
+		return tulos;
 	}
 	
 //	Hae TKID
@@ -67,15 +107,30 @@ public class TreeniKerta {
 		
 		eka.luo();
 		toka.luo();
-//		
-//		eka.VastaaMalli();
-//		toka.VastaaMalli();
-//		
+		
+		eka.VastaaMalli();
+		toka.VastaaMalli();
+		
+		try {
+		eka.tallenna();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 		eka.tulosta(System.out);
 		toka.tulosta(System.out);
 		
 
 		
 	}
+	
+	
+	public void tallenna() throws IOException {
+	      Writer output;
+	      output = new BufferedWriter(new FileWriter("C:\\Users\\Khondker\\Dropbox\\HT_Alpha\\HT_FitnessTracker\\main\\Databases\\Treenikerrat.txt", true));  
+	      output.append(" \n"+ tkid + " "+ kid+" "+PVM);
+	      output.close();
+			
+		}
 
 }

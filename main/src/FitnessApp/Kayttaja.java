@@ -135,7 +135,7 @@ catch(IOException e)
 	public void tallenna() throws IOException {
       Writer output;
       output = new BufferedWriter(new FileWriter("C:\\Users\\Khondker\\Dropbox\\HT_Alpha\\HT_FitnessTracker\\main\\Databases\\Kayttajat.txt", true));  
-      output.append(" \n"+ kid + " "+ nimi+" "+sPosti);
+      output.append(" \n"+ kid + " "+ nimi+" "+sPosti+ " "+ salasana);
       output.close();
 		
 	}

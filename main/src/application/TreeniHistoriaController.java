@@ -2,9 +2,11 @@ package application;
 
 
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import FitnessApp.FitnessApp;
 import fi.jyu.mit.fxgui.Dialogs;
@@ -112,5 +114,41 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 	}
 	
 	
+	public void alusta() {
+		String tulos = etsiKayttaja();
+		eka.setText(tulos);
+		
+	}
+	
+	private String etsiKayttaja() {
+		String temp = Integer.toString(nykyinenKID);
+		char etsittava = temp.charAt(0);
+		String t = "";
+		char tc = 'n';
+		String tulos = "";
+			   try  
+		   	{  
+		 FileInputStream fis=new FileInputStream("C:\\Users\\Khondker\\Dropbox\\HT_Alpha\\HT_FitnessTracker\\main\\Databases\\Treenikerrat.txt");       
+		 Scanner sc=new Scanner(fis);   
+		  
+		   		while(sc.hasNextLine())  
+		   		{  
+		   		t = sc.nextLine();
+		   		if (t.charAt(0)==etsittava) {
+		   			tulos = t; 
+		   		}
+		   		System.out.println(t); 
+		 }  
+		   		sc.close();
+		}  
+		catch(IOException e)  
+		   {  
+		  e.printStackTrace();  
+		}  
+			   return tulos;
+		} 	
+		   
+
 }
+
 

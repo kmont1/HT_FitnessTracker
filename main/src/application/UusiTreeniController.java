@@ -123,7 +123,17 @@ public class UusiTreeniController implements Initializable {
     	stage.hide();
     }
 	private void tallenna() {
-
+		TreeniKerta uusi = new TreeniKerta();
+		uusi.luo();
+		uusi.VastaaMalli();
+		uusi.tkid = nykyinenTKID;
+		uusi.kid = nykyinenKID;
+		try {
+			uusi.tallenna();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	paanaytto();
     	poista();
 	}

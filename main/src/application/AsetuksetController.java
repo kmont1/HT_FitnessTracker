@@ -165,6 +165,19 @@ public class AsetuksetController  implements Initializable{
    
    @Override
    public void initialize(URL url, ResourceBundle rb) {
+//	  String raaka = etsiKayttaja();
+//	  String arr[] = raaka.split(" ", 4); 
+//	  
+//	  
+//	  etunimi.setText(arr[1]);
+//	  sukunimi.setText(arr[2]);
+//	  kayttajatunnus.setText(arr[0]);
+	   
+	   
+   }
+   
+   
+   public void alusta() {
 	  String raaka = etsiKayttaja();
 	  String arr[] = raaka.split(" ", 4); 
 	  
@@ -173,7 +186,6 @@ public class AsetuksetController  implements Initializable{
 	  sukunimi.setText(arr[2]);
 	  kayttajatunnus.setText(arr[0]);
    }
-
    
 private String etsiKayttaja() {
 String temp = Integer.toString(nykyinenKID);

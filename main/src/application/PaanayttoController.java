@@ -74,6 +74,7 @@ public class PaanayttoController   {
 	            Parent root = loader.load();    		
 		        AsetuksetController seuraava = loader.getController();
 		        seuraava.l‰het‰KID(nykyinenKID);
+		        seuraava.alusta();
 		        
 		        Stage stage = new Stage();
 		        stage.setScene(new Scene(root));
@@ -135,6 +136,7 @@ public class PaanayttoController   {
 	            Parent root = loader.load();    		
 		        TreeniHistoriaController seuraava = loader.getController();
 		        seuraava.l‰het‰KID(nykyinenKID);
+		        seuraava.alusta();
 		        
 		        Stage stage = new Stage();
 		        stage.setScene(new Scene(root));
