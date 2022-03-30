@@ -88,7 +88,31 @@ public class UusiTreeniController {
 		Dialogs.showMessageDialog("ei vielä prkl");
 	}
 	private void tallennaLiike() {
+<<<<<<< Updated upstream
 		Dialogs.showMessageDialog("ei vielä prkl");
+=======
+    	int tarkistajaInt = 1;
+    	this.fitnessApp = fitnessApp;
+    	Treeni uusi = new Treeni();
+    	uusi.luoTreeni();
+    	uusi.vastaaAkunTreeni();
+    	uusi.lid = nykyinenLID;
+    	uusi.sarjoja = sarjaInput.getText();
+    	uusi.painot = painoInput.getText();
+    	uusi.toistoja = toistoInput.getText();
+    	uusi.tkid = nykyinenTKID;
+    	try {
+			uusi.tallenna();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	uusi.tulosta(System.out);
+    	
+
+    	
+
+>>>>>>> Stashed changes
 	}
 	private void UusiLiike() {
 		try {        
