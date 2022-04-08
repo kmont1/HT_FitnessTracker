@@ -63,6 +63,34 @@ public class Kayttaja {
 	}
 
 //	Reksiteröi käyttäjä
+	 /**
+     * 		Reksiteröi käyttäjä
+     * @return KID
+     * @example
+     * <pre name="test">
+     *   Kayttaja testi = new Kayttaja();
+     *   testi.rekisteroi();
+     *   testi.vastaaAkuAnkka();
+     *   		try {
+			testi.tallenna();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+     *   Kayttaja testi1 = new Kayttaja();
+     *   testi1.rekisteroi();
+     *   testi.vastaaAkuAnkka();
+     *   		try {
+			testi1.tallenna();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+     *   int n1 = testi.getKid();
+     *   int n2 = testi1.getKid();
+     *   n1 === n2-1;
+     * </pre>
+     */	
 	public int rekisteroi() {
 		try {
 			this.kid = haeSeuraavaNro()+1;
@@ -80,6 +108,9 @@ private int haeSeuraavaNro() throws FileNotFoundException {
     int i = 0;
     int tulos = 0;
     char t = 'a';
+    char t1 = 'a';
+    String yhd = "";
+    String nykyinen ="";
     
     try  
     	{  
@@ -88,10 +119,19 @@ private int haeSeuraavaNro() throws FileNotFoundException {
    
     		while(sc.hasNextLine())  
     		{  
+    			nykyinen = sc.nextLine();
+    		if (nykyinen.charAt(1) == ' ') {
+    			t = nykyinen.charAt(0);
+        		System.out.println(t); 
+    		}
+    		else {
+    			t = nykyinen.charAt(0);
+    			t1 = nykyinen.charAt(1);
+    		}
+    			
     			
 //    		System.out.println(sc.nextLine().charAt(0));   
-    		t = sc.nextLine().charAt(0);
-    		System.out.println(t); 
+    		
   }  
     		sc.close();
 }  
@@ -99,9 +139,15 @@ catch(IOException e)
     {  
    e.printStackTrace();  
 }  
-    
-    tulos = Character.getNumericValue(t);  
-    System.out.println("saat tämän "+tulos); 
+    if (t1 != 'a') {
+    	yhd = Character.toString(t) + Character.toString(t1);
+    	tulos = Integer.parseInt(yhd);
+    }
+    else {
+        tulos = Character.getNumericValue(t);  
+        System.out.println("saat tämän "+tulos); 
+    }
+
 	return tulos;
 }
 

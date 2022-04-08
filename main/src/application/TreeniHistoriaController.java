@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -32,14 +33,21 @@ import javafx.stage.Window;
 public class TreeniHistoriaController extends FitnessApp implements Initializable {
 	
     @FXML
+    private ListView<String> treeniLista;
+    
+    @FXML
     private TextField eka;
 	
 	@FXML
     private Button lopetaButton;
 
     @FXML
-    void handleLopeta(ActionEvent event) {
+    private void handleLopeta(ActionEvent event) {
     	lopeta();
+    }
+    @FXML
+    private void handleAvaaTreeni( ) {
+    	avaaTreeni();
     }
     
 
@@ -113,10 +121,13 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 		
 	}
 	
-	
+/*
+ * töytä alustustiedot
+ */
 	public void alusta() {
-		String tulos = etsiKayttaja();
-		eka.setText(tulos);
+//		String tulos = etsiKayttaja();
+//		eka.setText(tulos);
+		etsiKayttaja();
 		
 	}
 	
@@ -134,10 +145,11 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 		   		while(sc.hasNextLine())  
 		   		{  
 		   		t = sc.nextLine();
-		   		if (t.charAt(0)==etsittava) {
+		   		if (Integer.parseInt(t.split(" ")[1]) == nykyinenKID) {
 		   			tulos = t; 
+		   			treeniLista.getItems().add(tulos);
 		   		}
-		   		System.out.println(t); 
+		   		
 		 }  
 		   		sc.close();
 		}  
@@ -147,7 +159,13 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 		}  
 			   return tulos;
 		} 	
-		   
+		   /*
+		    * käsittele tietyn treenin klikkausta, avaa uusi ikkuna sekä listaa kaikki liikkeet
+		    */
+	private void avaaTreeni() {
+		treeniLista.getSelectionModel().getSelectedItem();
+		System.out.print(treeniLista.getSelectionModel().getSelectedItem());
+	}
 
 }
 

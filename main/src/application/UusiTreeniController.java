@@ -2,9 +2,11 @@ package application;
 
 
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import FitnessApp.Kayttaja;
 import FitnessApp.Treeni;
@@ -18,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -31,6 +34,18 @@ import javafx.stage.Window;
 
 public class UusiTreeniController implements Initializable {
 
+    @FXML
+     ListView<String> sarjaList;
+    
+    @FXML
+     ListView<String> toistoList;
+    
+    @FXML
+     ListView<String> painoList;
+    
+    @FXML
+     ListView<String> nimiList;
+    
 	@FXML
     private TextField liikkeenNimi;
 	
@@ -149,7 +164,15 @@ public class UusiTreeniController implements Initializable {
     	uusi.painot = painoInput.getText();
     	uusi.toistoja = toistoInput.getText();
     	uusi.tkid = nykyinenTKID;
+    	try {
+			uusi.tallenna();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	listaan();
     	uusi.tulosta(System.out);
+    	
 
     	
 
@@ -183,6 +206,9 @@ public class UusiTreeniController implements Initializable {
     public void l‰het‰KID(int l‰hetettyKID){
     	nykyinenKID =l‰hetettyKID; 
         System.out.println("uusiTreeni toimii  "+nykyinenKID);
+      	
+    	
+    	
         
     
     }
@@ -218,6 +244,80 @@ public void l‰het‰Tarkistaja(int i) {
 public void l‰het‰TKID(int i) {
 	 nykyinenTKID = i;
 	 System.out.println(nykyinenTKID);
+	 
 } 	
+
+/*
+ * lis‰t‰‰n tallentamisen j‰lkeen liikesarjat alas
+ */
+public void listaan() {
+	
+	int tk= this.nykyinenTKID;
+	String nykyinen = "";
+	String nykyinen1 = "";
+	String nykyinenParse = "";
+	int liikeId;
+	int tulos;
+	 try  
+ 	{  
+FileInputStream fis=new FileInputStream("C:\\Users\\Khondker\\Dropbox\\HT_Alpha\\HT_FitnessTracker\\main\\Databases\\Treeni.txt");       
+Scanner sc=new Scanner(fis);   
+
+	while(sc.hasNextLine())  
+	{  
+		nykyinen = sc.nextLine();
+		if(Integer.parseInt(nykyinen.split(" ")[5]) == tk ) {
+			liikeId = Integer.parseInt(nykyinen.split(" ")[1]);
+			//paino
+			nykyinenParse = nykyinen.split(" ")[3];
+			painoList.getItems().add(nykyinenParse);
+			//sarja
+			nykyinenParse = nykyinen.split(" ")[2];
+			sarjaList.getItems().add(nykyinenParse);
+			//toisto
+			nykyinenParse = nykyinen.split(" ")[4];
+			toistoList.getItems().add(nykyinenParse);
+			//nimi
+			
+			 try  
+			 	{  
+			FileInputStream fis1=new FileInputStream("C:\\Users\\Khondker\\Dropbox\\HT_Alpha\\HT_FitnessTracker\\main\\Databases\\Liike.txt");       
+			Scanner sc1=new Scanner(fis1);   
+
+				while(sc1.hasNextLine())  
+				{  
+					nykyinen1 = sc1.nextLine();
+					if(Integer.parseInt(nykyinen1.split(" ")[0]) == liikeId) {
+						nykyinenParse = nykyinen1.split(" ")[2];
+						nimiList.getItems().add(nykyinenParse);
+					}
+					}
+					
+					
+//				System.out.println(sc.nextLine().charAt(0));   
+				
+			  
+				
+			}  
+			catch(IOException e)  
+			{  
+			e.printStackTrace();  
+			}  
+			} 
+			
+		
+		
+		
+//	System.out.println(sc.nextLine().charAt(0));   
+	
+}  
+	sc.close();
+}  
+catch(IOException e)  
+{  
+e.printStackTrace();  
+}  
+} 
+
 }
 

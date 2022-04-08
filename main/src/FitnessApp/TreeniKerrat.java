@@ -21,6 +21,33 @@ public class TreeniKerrat {
 	}
 	
 //lisaa alkio jos täynnä 	
+    /**
+     * Lisää uuden treenikerta tietorakenteeseen.  Ottaa treenikerta omistukseensa.
+     * @param treenikerta lisätäävän treenikerta viite
+     * @example
+     * <pre name="test">
+     * 
+     * TreeniKerrat treeniKerrat = new TreeniKerrat();
+     * TreeniKerta eka = new TreeniKerta();
+     * TreeniKerta toka = new TreeniKerta();
+     * treeniKerrat.getLkm() === 0;
+     * eka.luo();
+     * treeniKerrat.lisaa(eka);
+     * treeniKerrat.getLkm() === 1;
+     * toka.luo();
+     * treeniKerrat.lisaa(toka);
+     * treeniKerrat.getLkm() === 2;
+     * eka.luo(); 
+     * treeniKerrat.lisaa(eka);
+     * treeniKerrat.getLkm() === 3;
+     * treeniKerrat.anna(0) === eka;
+     * treeniKerrat.anna(1) === toka;
+     * treeniKerrat.anna(2) === eka;
+     * treeniKerrat.anna(1) == eka === false;
+     * treeniKerrat.anna(1) == toka === true;
+     * </pre>
+     */
+
 	 public void lisaa(TreeniKerta treeniKerta) {
 		 if(lkm >=alkiot.length) uusiAlkio();
 		 this.alkiot[this.lkm] = treeniKerta;

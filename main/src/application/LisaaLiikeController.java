@@ -2,12 +2,15 @@ package application;
 
 
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Scanner;
 
 import FitnessApp.FitnessApp;
 import FitnessApp.Kayttaja;
 import FitnessApp.Liike;
 import fi.jyu.mit.fxgui.Dialogs;
+import fi.jyu.mit.fxgui.ListChooser;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -29,7 +33,9 @@ import javafx.stage.Window;
 public class LisaaLiikeController {
 
 	
-
+    	@FXML
+    	ListView<String> liikeLista;
+		
 	    @FXML
 	    private Button jatkaButton;
 	    	
@@ -103,6 +109,7 @@ public class LisaaLiikeController {
 	    }
 		// vastaanota kid
 		 public void lähetäKID(int lähetettyKID){
+			 	liikeNäyttö();
 		    	nykyinenKID =lähetettyKID; 
 		        System.out.println("liiketoimii  "+nykyinenKID);
 		        
@@ -129,6 +136,12 @@ public class LisaaLiikeController {
 	    	    	nykyinenLID = uusi.getLid();
 	    	    	nykyinenLiike= input;
 	    	    	uusi.vastaaLiikeNimi(input);
+	    	    	try {
+						uusi.tallenna();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	    	    	uusi.tulosta(System.out);
 	    	    	}
 	
@@ -138,6 +151,41 @@ public class LisaaLiikeController {
 			nykyinenTKID = lähetettyTKID;
 			
 		}
-	    
+		
+/*
+ * asetetaan listalle kaikki käyttäjän edelliset tallennetut liikkeet
+ */
+		public void liikeNäyttö() {
+			int k = this.nykyinenKID;
+			String nykyinen = "";
+			String nykyinenParse = "";
+			int tulos;
+		    try  
+		    	{  
+		  FileInputStream fis=new FileInputStream("C:\\Users\\Khondker\\Dropbox\\HT_Alpha\\HT_FitnessTracker\\main\\Databases\\Liike.txt");       
+		  Scanner sc=new Scanner(fis);   
+		   
+			while(sc.hasNextLine())  
+			{  
+				nykyinen = sc.nextLine();
+				nykyinenParse = nykyinen.substring(5,7);
+				tulos =  Integer.parseInt(nykyinenParse);
+				if(tulos == k || tulos == 0) {
+					nykyinenParse = nykyinen.substring(8);
+					liikeLista.getItems().add(nykyinenParse);
+				}
+				
+				
+//			System.out.println(sc.nextLine().charAt(0));   
+			
+	}  
+			sc.close();
+	}  
+	catch(IOException e)  
+	{  
+	e.printStackTrace();  
+	}  
+			
+		}
 	}
 

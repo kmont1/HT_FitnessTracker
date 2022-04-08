@@ -56,6 +56,34 @@ public class TreeniKerta {
 	}
 
 //	Reksiteröi treenikerrat
+    /**
+     * 	Reksiteröi treenikerta
+     * @return TKID
+     * @example
+     * <pre name="test">
+     *   TreeniKerta testi = new TreeniKerta();
+     *   testi.luo();
+     *   testi.VastaaMalli();
+     *   try {
+		testi.tallenna();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+     *   TreeniKerta testi1 = new TreeniKerta();
+     *   testi1.luo();
+     *   testi1.VastaaMalli();
+     *   try {
+		testi.tallenna();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+     *   int n1 = testi.getTKID();
+     *   int n2 = testi1.getTKID();
+     *   n1 === n2-1;
+     * </pre>
+     */	
 	public int luo() {
 		try {
 			this.tkid = haeSeuraavaNro()+1;
@@ -70,36 +98,55 @@ public class TreeniKerta {
 	    int i = 0;
 	    int tulos = 0;
 	    char t = 'a';
+	    char t1 = 'a';
+	    String yhd = "";
+	    String nykyinen ="";
+	    
 	    
 	    try  
 	    	{  
 	  FileInputStream fis=new FileInputStream("C:\\Users\\Khondker\\Dropbox\\HT_Alpha\\HT_FitnessTracker\\main\\Databases\\Treenikerrat.txt");       
 	  Scanner sc=new Scanner(fis);   
 	   
-	    		while(sc.hasNextLine())  
-	    		{  
-	    			
-//	    		System.out.println(sc.nextLine().charAt(0));   
-	    		t = sc.nextLine().charAt(0);
-	    		System.out.println(t); 
-	  }  
-	    		sc.close();
-	}  
-	catch(IOException e)  
-	    {  
-	   e.printStackTrace();  
-	}  
-	    
-	    tulos = Character.getNumericValue(t);  
-	    System.out.println("saat tämän "+tulos); 
-		return tulos;
-	}
+		while(sc.hasNextLine())  
+		{  
+			nykyinen = sc.nextLine();
+		if (nykyinen.charAt(1) == ' ') {
+			t = nykyinen.charAt(0);
+  		System.out.println(t); 
+		}
+		else {
+			t = nykyinen.charAt(0);
+			t1 = nykyinen.charAt(1);
+		}
+			
+			
+//		System.out.println(sc.nextLine().charAt(0));   
+		
+}  
+		sc.close();
+}  
+catch(IOException e)  
+{  
+e.printStackTrace();  
+}  
+if (t1 != 'a') {
+	yhd = Character.toString(t) + Character.toString(t1);
+	tulos = Integer.parseInt(yhd);
+}
+else {
+  tulos = Character.getNumericValue(t);  
+  System.out.println("saat tämän "+tulos); 
+}
+
+return tulos;
+}
 	
 //	Hae TKID
 	 public int getTKID() {
 	        return tkid;
 	    }
-//Pääohjelma joka rekisteröi, vastaa sekä tulostaa treenikerrat
+//Pääohjelma testaamiseen joka rekisteröi, vastaa sekä tulostaa treenikerrat
 
 	public static void main(String[] args) {
 		TreeniKerta eka = new TreeniKerta();

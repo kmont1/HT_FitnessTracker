@@ -32,6 +32,32 @@ public class Kayttajat {
 		
 	}
 	
+    /**
+     * Lisää uuden kayttaja tietorakenteeseen. 
+     * @param treenikerta lisätäävän treenikerta viite
+     * @example
+     * <pre name="test">
+     * 
+     * Kayttajat kayttajat = new Kayttajat();
+     * Kayttaja eka = new Kayttaja();
+     * Kayttaja toka = new Kayttaja();
+     * kayttajat.getLkm() === 0;
+     * eka.rekisteroi();
+     * kayttajat.lisaa(eka);
+     * kayttajat.getLkm() === 1;
+     * toka.rekisteroi();
+     * kayttajat.lisaa(toka);
+     * kayttajat.getLkm() === 2;
+     * eka.rekisteroi(); 
+     * kayttajat.lisaa(eka);
+     * kayttajat.getLkm() === 3;
+     * kayttajat.anna(0) === eka;
+     * kayttajat.anna(1) === toka;
+     * kayttajat.anna(2) === eka;
+     * kayttajat.anna(1) == eka === false;
+     * kayttajat.anna(1) == toka === true;
+     * </pre>
+     */
 	
 	 public void lisaa(Kayttaja kayttaja) {
 		 if(lkm >=alkiot.length) uusiAlkio();

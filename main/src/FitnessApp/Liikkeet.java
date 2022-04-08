@@ -19,7 +19,32 @@ public class Liikkeet {
 	public Liikkeet() {
 		alkiot = new Liike[MAX_LIIKEET];
 	}
-	
+    /**
+     * Lis‰‰ uuden liikkeen tietorakenteeseen.  Ottaa liikkeen omistukseensa.
+     * @param liikkeen lis‰t‰‰v‰n liike viite
+     * @example
+     * <pre name="test">
+     * 
+     * Liikkeet Liikkeet = new Liikkeet();
+     * Liike eka = new Liike();
+     * Liike toka = new Liike();
+     * Liikkeet.getLkm() === 0;
+     * eka.luoLiike();
+     * Liikkeet.lisaa(eka);
+     * Liikkeet.getLkm() === 1;
+     * toka.luoLiike();
+     * Liikkeet.lisaa(toka);
+     * Liikkeet.getLkm() === 2;
+     * eka.luoLiike(); 
+     * Liikkeet.lisaa(eka);
+     * Liikkeet.getLkm() === 3;
+     * Liikkeet.anna(0) === eka;
+     * Liikkeet.anna(1) === toka;
+     * Liikkeet.anna(2) === eka;
+     * Liikkeet.anna(1) == eka === false;
+     * Liikkeet.anna(1) == toka === true;
+     * </pre>
+     */
 	 public void lisaa(Liike liike) {
 		 if(lkm >=alkiot.length) uusiAlkio();
 		 this.alkiot[this.lkm] = liike;
@@ -44,7 +69,7 @@ public class Liikkeet {
 	public static void main(String[] args) {
 		Liikkeet Liikkeet = new Liikkeet();
 		Liike eka = new Liike();
-		
+		Liike toka = new Liike();
 		
 		eka.luoLiike();
 	
