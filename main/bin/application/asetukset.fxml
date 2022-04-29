@@ -50,7 +50,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane layoutX="2.0" layoutY="14.0" prefHeight="370.0" prefWidth="444.0">
+            <GridPane layoutY="14.0" prefHeight="370.0" prefWidth="444.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -76,8 +76,7 @@
                     </rowConstraints>
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Käyttäjätunnus" wrappingWidth="89.4700984954834" />
-                        <TextField prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" onAction="#handleKayttajatunnusLaheta" text="Lähetä" GridPane.columnIndex="2" />
+                        <TextField fx:id="kayttajatunnus" prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="1">
@@ -91,7 +90,7 @@
                      </rowConstraints>
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Salasana" wrappingWidth="89.4700984954834" />
-                        <TextField prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="salasana" prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
                         <Button mnemonicParsing="false" onAction="#handleSalasanaLaheta" text="Lähetä" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
@@ -106,7 +105,7 @@
                      </rowConstraints>
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etunimi" wrappingWidth="89.4700984954834" />
-                        <TextField prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="etunimi" prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
                         <Button mnemonicParsing="false" onAction="#HandleEtunimiLaheta" text="Lähetä" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
@@ -121,11 +120,26 @@
                      </rowConstraints>
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sukunimi" wrappingWidth="89.4700984954834" />
-                        <TextField prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="sukunimi" prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
                         <Button mnemonicParsing="false" onAction="#handleSukunimiLaheta" text="Lähetä" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TALLENNETTU" wrappingWidth="106.13671660423279" GridPane.rowIndex="6" />
+                  <GridPane GridPane.rowIndex="4">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.3333740234375" minWidth="10.0" prefWidth="109.33333333333333" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.66663360595703" minWidth="10.0" prefWidth="213.33331298828125" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.66663360595703" minWidth="10.0" prefWidth="122.66668701171875" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sahköposti" wrappingWidth="89.4700984954834" />
+                        <TextField fx:id="sahkoposti" prefHeight="25.0" prefWidth="138.0" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#handleSahkopostiLaheta" text="Lähetä" GridPane.columnIndex="2" />
+                     </children>
+                  </GridPane>
                </children>
             </GridPane>
          </children></Pane>

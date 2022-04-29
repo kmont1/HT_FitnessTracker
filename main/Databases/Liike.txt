@@ -1,0 +1,4 @@
+001 000 Hauiskääntö  
+002 000 punnerrus   
+003 009 Hauiskääntö   
+004 009 leuka
