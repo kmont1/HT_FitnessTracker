@@ -71,7 +71,7 @@ public class Liikkeet {
 		Liike eka = new Liike();
 		Liike toka = new Liike();
 		
-		eka.luoLiike();
+		eka.luoLiike(2);
 	
 		
 		eka.vastaaLiikeNimi("HAUISKÄÄNTÖ");

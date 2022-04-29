@@ -152,7 +152,9 @@ public class UusiTreeniController implements Initializable {
     	paanaytto();
     	poista();
 	}
-//	TALLENNA uusi treeni sek‰ lis‰‰ sille treenikertaID
+/*
+ * 	TALLENNA uusi treeni sek‰ lis‰‰ sille treenikertaID
+ */
 	private void tallennaLiike() {
     	int tarkistajaInt = 1;
     	this.fitnessApp = fitnessApp;
@@ -177,7 +179,9 @@ public class UusiTreeniController implements Initializable {
     	
 
 	}
-	//Vie uusi liike v‰lilehdelle 
+	/*
+	 * Vie uusi liike v‰lilehdelle 
+	 */
 	private void UusiLiike() {
 		try {        
     		FXMLLoader loader = new 		  FXMLLoader(getClass().getResource("LisaaLiike.fxml"));
@@ -202,7 +206,9 @@ public class UusiTreeniController implements Initializable {
 	    }
 		poista();
 	}
-//    Vastaanottaa KIDIN
+/*
+ *     Vastaanottaa KIDIN
+ */
     public void l‰het‰KID(int l‰hetettyKID){
     	nykyinenKID =l‰hetettyKID; 
         System.out.println("uusiTreeni toimii  "+nykyinenKID);
@@ -212,7 +218,9 @@ public class UusiTreeniController implements Initializable {
         
     
     }
-//  Vastaanottaa LIDIN sek‰ lis‰‰ tekstin liikkeenNimi kohtaan 
+/*
+ *   Vastaanottaa LIDIN sek‰ lis‰‰ tekstin liikkeenNimi kohtaan 
+ */
 
 public void l‰het‰LID(int l‰hetettyLID, String L‰hetettyLiike) {
 	nykyinenLID =l‰hetettyLID; 
@@ -223,7 +231,9 @@ public void l‰het‰LID(int l‰hetettyLID, String L‰hetettyLiike) {
 }
 
 
-
+/**
+ * initti ja aseta liikkeen nimi nykyiseen textfieldiin
+ */
 @Override
 public void initialize(URL url, ResourceBundle rb) {
 	 liikkeenNimi.setText(nykyinenLiike);
@@ -231,7 +241,11 @@ public void initialize(URL url, ResourceBundle rb) {
 	
 
 } 	
-//luo tkiden sek‰ muut tarpeelliset arvot
+
+
+/*
+ * luo tkiden sek‰ muut tarpeelliset arvot
+ */
 public void l‰het‰Tarkistaja(int i) {
 	TreeniKerta uusiT = new TreeniKerta();
 	 uusiT.luo();
@@ -240,12 +254,17 @@ public void l‰het‰Tarkistaja(int i) {
 	 nykyinenTKID = uusiT.getTKID();
 	 System.out.println(nykyinenTKID);
 } 	
-//aseta oikea tkid
+
+
+/*
+ * aseta oikea tkid
+ */
 public void l‰het‰TKID(int i) {
 	 nykyinenTKID = i;
 	 System.out.println(nykyinenTKID);
 	 
 } 	
+
 
 /*
  * lis‰t‰‰n tallentamisen j‰lkeen liikesarjat alas
@@ -294,7 +313,9 @@ Scanner sc=new Scanner(fis);
 					}
 					
 					
-//				System.out.println(sc.nextLine().charAt(0));   
+/*
+ * 				System.out.println(sc.nextLine().charAt(0));   
+ */
 				
 			  
 				
@@ -308,7 +329,9 @@ Scanner sc=new Scanner(fis);
 		
 		
 		
-//	System.out.println(sc.nextLine().charAt(0));   
+/*
+ * 	System.out.println(sc.nextLine().charAt(0));   
+ */
 	
 }  
 	sc.close();

@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -55,6 +56,11 @@ public class LisaaLiikeController {
 	    void handleLopeta(ActionEvent event) {
 	    	lopeta();
 	    }
+		
+		 @FXML
+		 void handleClick(MouseEvent event) {
+			 clickLis‰‰();
+		    }
 
 	    @FXML
 	    void redirTakaisin(ActionEvent event) {
@@ -68,9 +74,14 @@ public class LisaaLiikeController {
 	    private int nykyinenLID;
 	    private String nykyinenLiike;
 	    
+		/**
+		 * sulje ohjelma
+		 */
 	    private void lopeta() {
 	    	Platform.exit();
 	    }
+	    
+	    
 	    /*
 		 * takaisin uuteen treeniin
 		 */
@@ -99,6 +110,8 @@ public class LisaaLiikeController {
 		    }
 			
 		}
+	    
+	    
 	    /*
 		 * siirrytty‰ halutulle n‰ytˆlle suljetaan edellinen ikkuna
 		 */
@@ -107,14 +120,24 @@ public class LisaaLiikeController {
 	    	Window stage = lopetaButton.getScene().getWindow();
 	    	stage.hide();
 	    }
-		// vastaanota kid
+		
+		
+		/**
+		 *  vastaanota kid
+		 * @param l‰hetettyKID
+		 */
 		 public void l‰het‰KID(int l‰hetettyKID){
 			 	liikeN‰yttˆ();
 		    	nykyinenKID =l‰hetettyKID; 
 		        System.out.println("liiketoimii  "+nykyinenKID);
 		        
 		    }
-//		 ota sis‰‰npistetty arvo lis‰‰ se liikkeeksi ja l‰het‰ eteenp‰in
+		 
+		 
+
+		 /**	
+		  * ota sis‰‰npistetty arvo lis‰‰ se liikkeeksi ja l‰het‰ eteenp‰in
+		  */
 	    private void jatka() {
 	    	lisaa();
 	    	uusiTreeni();
@@ -123,16 +146,18 @@ public class LisaaLiikeController {
 			
 		}
 	    
-//lisaa  liikkeeseen
+/**
+ * lisaa  liikkeeseen
+ */
 	    private void lisaa() {
 	    	String input = liikeInput.getText();
-	    	if (input.length() > 3) {
+	    	if (input.length() > 0) {
 	    	    
 	    	    	
 	    	    	int tarkistajaInt = 1;
 	    	    	this.fitnessApp = fitnessApp;
 	    	    	Liike uusi = new Liike();
-	    	    	uusi.luoLiike();
+	    	    	uusi.luoLiike(this.nykyinenKID);
 	    	    	nykyinenLID = uusi.getLid();
 	    	    	nykyinenLiike= input;
 	    	    	uusi.vastaaLiikeNimi(input);
@@ -146,7 +171,10 @@ public class LisaaLiikeController {
 	    	    	}
 	
 }
-//vastaanota tkid
+/**
+ * vastaanota tkid
+ * @param l‰hetettyTKID
+ */
 		public void l‰het‰TKID(int l‰hetettyTKID) {
 			nykyinenTKID = l‰hetettyTKID;
 			
@@ -176,8 +204,9 @@ public class LisaaLiikeController {
 				}
 				
 				
-//			System.out.println(sc.nextLine().charAt(0));   
-			
+/**
+ * 			System.out.println(sc.nextLine().charAt(0));   
+ */		
 	}  
 			sc.close();
 	}  
@@ -187,5 +216,12 @@ public class LisaaLiikeController {
 	}  
 			
 		}
-	}
+	
 
+		/**
+		 * aseta valittu teksti tekstikent‰lle
+		 */
+		private void clickLis‰‰() {
+			liikeInput.setText(liikeLista.getSelectionModel().getSelectedItem());
+		}
+}

@@ -104,7 +104,7 @@ public class FitnessApp {
 // 		Liikeet
 		Liike eka = new Liike();
 		
-		eka.luoLiike();
+		eka.luoLiike(2);
 		
 		eka.vastaaLiikeNimi("HAUISKÄÄNTÖ");
 // 		Treenit			

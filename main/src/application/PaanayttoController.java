@@ -58,12 +58,15 @@ public class PaanayttoController   {
 	    }
 //=============================================================
 	    private int nykyinenKID;
+	    
+	    
 		/*
 		 * sulje ohjelma 
 		 */
 		private void lopeta() {
 			Platform.exit();
 		}
+		
 		
 		/*
 		 * siirry asetukset v‰lilehdelle
@@ -92,11 +95,10 @@ public class PaanayttoController   {
 		    }
 		}
 	    
+		
 		/*
 		 * siirr‰ lisaa treeni v‰lilehdelle
 		 */
-
-	    
 	    private void redirLisaaTreeni() {
 	    	try {        
 	    		FXMLLoader loader = new 		  FXMLLoader(getClass().getResource("UusiTreeni.fxml"));
@@ -126,10 +128,11 @@ public class PaanayttoController   {
 		    }
 			
 		}
+	    
+	    
 		/*
 		 * siirr‰ treenihistoria v‰lilehdelle
 		 */
-	    
 	    private void redirLisaaTreeniHistoria() {
 	    	try {     
 	    		FXMLLoader loader = new 		  FXMLLoader(getClass().getResource("treenihistoria.fxml"));
@@ -156,12 +159,16 @@ public class PaanayttoController   {
 			
 		}
 	    
-//	    Vastaanottaa KIDIN
+/**
+ * 	    Vastaanottaa KIDIN
+ * @param l‰hetettyKID
+ */
 	    public void l‰het‰KID(int l‰hetettyKID){
 	    	nykyinenKID =l‰hetettyKID; 
 	        System.out.println("paanaytto controller toimiii  "+nykyinenKID);
 	        
 	    }
+	    
 	    
 		/*
 		 * siirrytty‰ halutulle sivustolle suljetaan edellinen ikkuna

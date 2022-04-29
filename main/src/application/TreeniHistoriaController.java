@@ -60,6 +60,7 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 
 //=================================================================
     private int nykyinenKID;
+    private int TID;
     
     
 	/*
@@ -100,13 +101,18 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 	 * siirryttyä halutulle näytölle suljetaan edellinen ikkuna
 	 */
     
-//    Vastaanottaa KIDIN
+/**
+ *     Vastaanottaa KIDIN
+ * @param lähetettyKID
+ */
     public void lähetäKID(int lähetettyKID){
     	nykyinenKID =lähetettyKID; 
         System.out.println("treenihistoria  "+nykyinenKID);
         
     }
-    //poista sivu
+    /**
+     * poista sivu
+     */
 	private void poista() {
     	
     	Window stage = lopetaButton.getScene().getWindow();
@@ -118,8 +124,8 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		
 	}
+	
 	
 /*
  * töytä alustustiedot
@@ -130,7 +136,10 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 		etsiKayttaja();
 		
 	}
-	
+	/**
+	 * etsi haluttu käyttäjä
+	 * @return
+	 */
 	private String etsiKayttaja() {
 		String temp = Integer.toString(nykyinenKID);
 		char etsittava = temp.charAt(0);
@@ -159,14 +168,36 @@ public class TreeniHistoriaController extends FitnessApp implements Initializabl
 		}  
 			   return tulos;
 		} 	
+	
 		   /*
 		    * käsittele tietyn treenin klikkausta, avaa uusi ikkuna sekä listaa kaikki liikkeet
 		    */
+	
 	private void avaaTreeni() {
-		treeniLista.getSelectionModel().getSelectedItem();
+		String treeni = treeniLista.getSelectionModel().getSelectedItem();
+		treeni = treeni.split(" ")[0];
+		TID = Integer.parseInt(treeni);
 		System.out.print(treeniLista.getSelectionModel().getSelectedItem());
+		try {        
+    		FXMLLoader loader = new 		  FXMLLoader(getClass().getResource("TreeniNaytto.fxml"));
+            Parent root = loader.load();    		
+	        TreeniNayttoController seuraava = loader.getController();
+	        seuraava.lähetäTiedot(nykyinenKID, TID);
+	       //seuraava.alusta();
+	        
+	        Stage stage = new Stage();
+	        stage.setScene(new Scene(root));
+	        stage.setTitle("Fitness Tracker");
+	        stage.show();
+	       
+	    } catch (IOException e) {
+	    	e.printStackTrace();
+	    }
+    	
+		
+	}
 	}
 
-}
+
 
 

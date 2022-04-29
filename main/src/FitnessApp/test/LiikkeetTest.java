@@ -23,13 +23,13 @@ public class LiikkeetTest {
     Liike eka = new Liike(); 
     Liike toka = new Liike(); 
     assertEquals("From: Liikkeet line: 31", 0, Liikkeet.getLkm()); 
-    eka.luoLiike(); 
+    eka.luoLiike(1); 
     Liikkeet.lisaa(eka); 
     assertEquals("From: Liikkeet line: 34", 1, Liikkeet.getLkm()); 
-    toka.luoLiike(); 
+    toka.luoLiike(1); 
     Liikkeet.lisaa(toka); 
     assertEquals("From: Liikkeet line: 37", 2, Liikkeet.getLkm()); 
-    eka.luoLiike(); 
+    eka.luoLiike(1); 
     Liikkeet.lisaa(eka); 
     assertEquals("From: Liikkeet line: 40", 3, Liikkeet.getLkm()); 
     assertEquals("From: Liikkeet line: 41", eka, Liikkeet.anna(0)); 

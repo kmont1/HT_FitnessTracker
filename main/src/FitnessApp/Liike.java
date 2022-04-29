@@ -75,13 +75,17 @@ public class Liike {
      *   n1 === n2-1;
      * </pre>
      */	
-	public int luoLiike() {
-		try {
-			this.lid = haeSeuraavaNro()+1;
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public int luoLiike(int kid) {
+
+			try {
+				this.lid = haeSeuraavaNro()+1;
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		
+		this.kid = kid;
 		return this.lid;
 	}
 	
@@ -123,8 +127,8 @@ return tulos;
 		Liike toka = new Liike();
 		
 		
-		eka.luoLiike();
-		toka.luoLiike();
+		eka.luoLiike(1);
+		toka.luoLiike(2);
 
 		eka.vastaaLiikeNimi("Hauiskääntö");
 		toka.vastaaLiikeNimi("penkki");

@@ -1,7 +1,4 @@
 001 000 Hauiskääntö  
-002 000 punnerrus 
-003 000 punnerrus 
-004 000 ssssssss 
-005 001 sdss 
-006 000 Hauiskääntö 
-007 000 
+002 000 punnerrus   
+003 009 Hauiskääntö   
+004 009 leuka

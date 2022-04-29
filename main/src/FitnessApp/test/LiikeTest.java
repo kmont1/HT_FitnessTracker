@@ -22,7 +22,7 @@ public class LiikeTest {
   @Test
   public void testLuoLiike54() {    // Liike: 54
     Liike testi = new Liike(); 
-    testi.luoLiike(); 
+    testi.luoLiike(1); 
     testi.vastaaLiikeNimi("Hauiskääntö"); 
     try {
     testi.tallenna(); 
@@ -30,7 +30,7 @@ public class LiikeTest {
     e.printStackTrace(); 
     }
     Liike testi1 = new Liike(); 
-    testi1.luoLiike(); 
+    testi1.luoLiike(1); 
     testi.vastaaLiikeNimi("Hauiskääntö"); 
     try {
     testi1.tallenna(); 

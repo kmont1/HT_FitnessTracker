@@ -93,13 +93,7 @@ public class RekisteroidyController {
 	        stage.setScene(new Scene(root));
 	        stage.setTitle("help plz");
 	        stage.show();
-	        
-//	        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("paanaytto.fxml"));
-//	        Scene scene = new Scene(root, 600, 374.4);
-//	        Stage stage = new Stage();
-//	        stage.setTitle("New Window");
-//	        stage.setScene(scene);
-//	        stage.show();
+	       
 	    } catch (IOException e) {
 	    	e.printStackTrace();
 	    }
@@ -119,7 +113,6 @@ public class RekisteroidyController {
     /*
      * validaattori rekisteröitymiselle
      */
-    
     private int rekisteroidy() {
     	int i = 0;
     	i = uusiKayttaja();
@@ -170,9 +163,10 @@ public class RekisteroidyController {
 //    	}
     }
     
-//    haetaan käyttäjä
-    
-    protected void hae() {
+/**
+ *     haetaan käyttäjä
+ */
+    private void hae() {
  
 		for (int i = 0; i < fitnessApp.getKayttajia(); i++) {
             Kayttaja kayttaja = fitnessApp.annaKayttaja(i);
@@ -181,7 +175,12 @@ public class RekisteroidyController {
         }
        
     }
-//luo uusi käyttäjä hankkimalla se textfieldistä, sekä lähetä validaaattorille
+    
+    
+/**
+ * luo uusi käyttäjä hankkimalla se textfieldistä, sekä lähetä validaaattorille
+ * @return
+ */
     
     private int uusiKayttaja() {
     	
@@ -193,6 +192,7 @@ public class RekisteroidyController {
     	nykyinenKID = uusi.getKid();
     	uusi.nimi = etunimiField.getText() +" "+ sukunimiField.getText();
     	uusi.sPosti = sPostiField.getText();
+    	uusi.salasana = salasanaField.getText();
     	try {
 			uusi.tallenna();
 		} catch (IOException e) {
@@ -201,14 +201,22 @@ public class RekisteroidyController {
 		}
     	int nykyinenKID = uusi.kid;
     	
-    	tarkistajaInt = tarkistaja(sPostiField.getText(), etunimiField.getText(), sukunimiField.getText(), uusi);  	
+    	tarkistajaInt = tarkistaja(sPostiField.getText(), etunimiField.getText(), sukunimiField.getText(), uusi, salasanaField.getText());  	
     	sPostiField.clear();
     	
     	return tarkistajaInt;
     }
     
-//    tarkistaja joka uudellenohjaa spostin fieldin uusille aliohjelmille. muut tarkistukset suoritetaan saman aliohjelmman sisällä
-    private int tarkistaja(String sposti, String etu, String suku, Kayttaja uusi) {
+/**
+ *     tarkistaja joka uudellenohjaa spostin fieldin uusille aliohjelmille. muut tarkistukset suoritetaan saman aliohjelmman sisällä
+ * @param sposti
+ * @param etu
+ * @param suku
+ * @param uusi
+ * @param salasana
+ * @return
+ */
+    private int tarkistaja(String sposti, String etu, String suku, Kayttaja uusi, String salasana) {
     	int i = 1;
     	int sp = 1;
     	int e = 1;
@@ -231,14 +239,25 @@ public class RekisteroidyController {
     		hae();
     		i= 2;
     	}
+    	if (salasana.equals("ss")) {
+    		//TODO
+    		//*KIRJOITA TARKISTAJA KOODILLE
+    	}
     	return i;
     }
-    // palauta nykyinenkid
+    /**
+     *  palauta nykyisenkid
+     * @return
+     */
 	 public int getNykyinenKID() {
 	        return nykyinenKID;
 	    }
 	 
-//   tarkistaja spostille
+/**
+ *    tarkistaja spostille
+ * @param sposti
+ * @return
+ */
     public static boolean sPostiTarkistaja(String sposti)
     {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
