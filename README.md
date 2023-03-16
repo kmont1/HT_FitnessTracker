@@ -9,14 +9,16 @@ To use the HT_FitnessTracker application, you'll need to have the latest version
 
 Once you have Java installed, you can download the HT_FitnessTracker program from the GitHub repository: https://github.com/kmontasi/HT_FitnessTracker
 
-Usage
+## Usage
 To start using the HT_FitnessTracker application, you can run the following command in your terminal:
 
-Copy code
-java HT_FitnessTracker
+``` java HT_FitnessTracker ```
+
 This will start the application and display the main menu, which will allow you to choose from several options, including:
 
-Add a new workout: This option allows you to input data for a new workout, including the type of exercise, duration, and intensity.
+Add a new workout: 
+
+This option allows you to input data for a new workout, including the type of exercise, duration, and intensity.
 
 View workout history: This option displays a report of all the workouts that you've entered into the application, including the date, type of exercise, duration, and intensity.
 
