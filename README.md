@@ -1,7 +1,8 @@
 ### HT_FitnessTracker Documentation
 
 
-### HUOM! Sovellus tehtiin Jyväskylän yliopiston ohjelmointi-2 kurssia varten. Sovellus sai  5/5 arvosanan kurssilla. Sovellus kuitenkin käyttää hyvin outoja menetelmiä kuten txt tiedostoja tietokantana.
+### HUOM! Sovellus tehtiin Jyväskylän yliopiston ohjelmointi-2 kurssia varten. Sovellus sai  5/5 arvosanan kurssilla. 
+
 ## Introduction
 
 HT_FitnessTracker is a Java-based fitness tracker designed to help users keep track of their daily workouts and fitness goals. This application allows users to input data for their daily exercise routines, including the type of exercise, duration, and intensity, and then generates reports to help users monitor their progress towards their fitness goals.
